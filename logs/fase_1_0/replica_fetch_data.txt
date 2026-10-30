@@ -1,0 +1,12 @@
+step: fetch_data.py
+cwd: work/replica_originale/code
+interpreter: /home/user/januarystrat/.venv/bin/python (Python 3.13.17)
+network: HTTP(S) proxies -> http://127.0.0.1:9 (offline)
+start_utc: 2026-10-30T18:00:39Z
+duration_s: 1.6
+exit_code: 0
+--- stdout ---
+jb_prices.parquet                   166,227,925 bytes  = frozen copy
+jb_membership_intervals.parquet          24,310 bytes  = frozen copy
+jb_renames.csv                              393 bytes  = frozen copy
+--- stderr ---

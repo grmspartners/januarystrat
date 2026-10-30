@@ -1,0 +1,29 @@
+# python3 -m research.integrity verify --root work/replica_originale   (2026-10-30T18:03:05Z)
+# Expected: exit 1, only ADDED entries (outputs of fetch_data/parse_yahoo/data_layer and __pycache__; empty folders such as out/charts are not files and are not listed)
+INTEGRITY FAILURE: work/replica_originale differs from /home/user/januarystrat/tests/fixtures/source_original.sha256
+ADDED     code/__pycache__/annual_study.cpython-313.pyc
+ADDED     code/__pycache__/benchmarks.cpython-313.pyc
+ADDED     code/__pycache__/build_excel_annuale.cpython-313.pyc
+ADDED     code/__pycache__/build_report_annuale.cpython-313.pyc
+ADDED     code/__pycache__/charts_annuale.cpython-313.pyc
+ADDED     code/__pycache__/config.cpython-313.pyc
+ADDED     code/__pycache__/data_layer.cpython-313.pyc
+ADDED     code/__pycache__/leaps.cpython-313.pyc
+ADDED     code/__pycache__/make_report.cpython-313.pyc
+ADDED     code/__pycache__/metrics.cpython-313.pyc
+ADDED     code/__pycache__/names.cpython-313.pyc
+ADDED     code/__pycache__/panel.cpython-313.pyc
+ADDED     code/__pycache__/paper_tables.cpython-313.pyc
+ADDED     code/__pycache__/patches.cpython-313.pyc
+ADDED     code/__pycache__/report_annuale_tables.cpython-313.pyc
+ADDED     code/__pycache__/signals.cpython-313.pyc
+ADDED     code/__pycache__/tax_it.cpython-313.pyc
+ADDED     code/__pycache__/xlsx_style.cpython-313.pyc
+ADDED     data/processed/labels.json
+ADDED     data/processed/ndx_intervals_resolved.parquet
+ADDED     data/processed/panel.npz
+ADDED     data/processed/spx_intervals.parquet
+ADDED     data/processed/yahoo_batch1.parquet
+ADDED     data/processed/yahoo_batch1_meta.json
+ADDED     data/raw/jb_prices.parquet
+# exit code: 1

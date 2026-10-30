@@ -1,0 +1,18 @@
+# Pre-commit hook test in a throwaway clone of this repository (<clone> = scratch directory, deleted afterwards)
+# 2026-10-30T18:06:12Z; hook run with system python3 (no venv in the clone); core.hooksPath=.githooks
+## 1. legitimate commit (new files only)
+-> commit accepted
+## 2. staged change inside source_original
+pre-commit: changes to source_original/ are staged; source_original/ is immutable.
+M	source_original/paper/annuale.md
+-> commit BLOCKED
+## 3. unstaged modification inside source_original, unrelated commit
+INTEGRITY FAILURE: <clone>/source_original differs from <clone>/tests/fixtures/source_original.sha256
+MODIFIED  results/AN_parametri.json
+-> commit BLOCKED
+## 4. git-ignored file added inside source_original
+INTEGRITY FAILURE: <clone>/source_original differs from <clone>/tests/fixtures/source_original.sha256
+ADDED     data/raw/jb_prices.parquet
+-> commit BLOCKED
+## 5. tree restored, same commit
+-> commit accepted

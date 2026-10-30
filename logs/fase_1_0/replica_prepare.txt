@@ -1,0 +1,4 @@
+[2026-10-30T18:00:26Z] source_original/ intact (before copy)
+copy of source_original/ -> /home/user/januarystrat/work/replica_originale: identical to the manifest (160 files)
+config.ROOT of the copy = /home/user/januarystrat/work/replica_originale
+[2026-10-30T18:00:28Z] source_original/ intact (after copy)

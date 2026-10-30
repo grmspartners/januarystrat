@@ -1,0 +1,10 @@
+step: data_layer.py
+cwd: work/replica_originale/code
+interpreter: /home/user/januarystrat/.venv/bin/python (Python 3.13.17)
+network: HTTP(S) proxies -> http://127.0.0.1:9 (offline)
+start_utc: 2026-10-30T18:00:51Z
+duration_s: 87.3
+exit_code: 0
+--- stdout ---
+{'n_dates': 9766, 'n_labels': 947, 'filled': 11231, 'ndx_missing': 40, 'ndx_total': 324}
+--- stderr ---

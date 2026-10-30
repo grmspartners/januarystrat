@@ -1,0 +1,10 @@
+step: parse_yahoo.py
+cwd: work/replica_originale/code
+interpreter: /home/user/januarystrat/.venv/bin/python (Python 3.13.17)
+network: HTTP(S) proxies -> http://127.0.0.1:9 (offline)
+start_utc: 2026-10-30T18:00:41Z
+duration_s: 9.9
+exit_code: 0
+--- stdout ---
+(1365261, 10) 227 symbols not found on Yahoo: 81
+--- stderr ---

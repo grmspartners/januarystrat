@@ -1,0 +1,23 @@
+check run at 2026-10-30T18:02:32Z (Python 3.13.17, numpy 2.5.4, pandas 3.0.6)
+jb_prices.parquet: 166227925 bytes sha256=c82175764526568390d33c57c08c00722e725fe48591ae82f7e27eaceac230f3 manifest_match=True
+jb_membership_intervals.parquet: 24310 bytes sha256=a8f3ebcedffb431a82fb66a66458a5bc48dd1b0a961e0e9fb1e90f9835a62a23 manifest_match=True
+jb_renames.csv: 393 bytes sha256=e571766f6f362e38d61d7c24d16e5d99db3776b7faea1b94d0c7b0e202d327a0 manifest_match=True
+jb_prices: rows=6163332 tickers=1022 columns=['date', 'ticker', 'open', 'high', 'low', 'close', 'volume', 'adj_close', 'dividends', 'stock_splits', 'source']
+jb_prices: dtypes={'date': 'datetime64[us]', 'ticker': 'str', 'open': 'float64', 'high': 'float64', 'low': 'float64', 'close': 'float64', 'volume': 'float64', 'adj_close': 'float64', 'dividends': 'float64', 'stock_splits': 'float64', 'source': 'str'}
+jb_prices: dates 1970-01-02 -> 2026-10-09
+jb_prices: rows by source={'yahoo': 4982664, 'tiingo': 841674, 'wiki': 311933, 'kaggle': 15196, 'kaggle-splice': 11817, 'archive-patch': 29, 'nasdaq-patch': 9, 'wiki-patch': 5, 'tiingo-patch': 5}
+jb_prices: SNDK: first=2025-02-13 last=2026-10-09 rows=416
+jb_prices: SNDK-201605: first=1995-11-08 last=2016-05-11 rows=5162
+jb_prices: MRNA: first=2018-12-07 last=2026-10-09 rows=1970
+processed: labels.json 72222 bytes sha256=8a48f347517b35f9ea93c03eaa5432bdf3627d6fb2a6d1d280de4e18fdfdcace
+processed: ndx_intervals_resolved.parquet 9448 bytes sha256=d642bb04f1dd8384c9dbbdb4b420f387647cd779da02d29866853599f5664863
+processed: panel.npz 153875315 bytes sha256=ea4594217d029fe79b8427ba4706513cdc978423388f2f30d906d572b6e6a2e0
+processed: spx_intervals.parquet 24310 bytes sha256=a8f3ebcedffb431a82fb66a66458a5bc48dd1b0a961e0e9fb1e90f9835a62a23
+processed: yahoo_batch1.parquet 38215865 bytes sha256=cfdd6096d20bf2ee23d8600ae7617ca74f758039d4ca8e81da7910676cbc60e0
+processed: yahoo_batch1_meta.json 28047 bytes sha256=24a08341c819456a82cae2e3670c4d55f04096396a2e583f86f9ed1028698468
+panel: dates=9766 (1988-01-04 -> 2026-10-09) labels=947
+panel: S&P 500 membership intervals=1259 (start 1996-01-02), members on 2026-10-09=503
+panel: adjustment repairs=30 cells on 24 labels
+repairs vs historical sheet 'Riparazioni_dati': rebuilt=30 historical=30 matched=30 only_rebuilt=0 only_historical=0 max|d vendor_ret|=4.44e-16 max|d repaired_ret|=2.78e-17
+patches: 9 synthetic series added: ['PATCH_PCS-2000', 'PATCH_NXTL-2000', 'PATCH_RBK-2001', 'PATCH_DYN-2001', 'PATCH_PVN-2003', 'PATCH_AV-2004', 'PATCH_DYN-2004', 'PATCH_TXU-2005', 'PATCH_UST-2009']
+last date in panel (AN_parametri.json reports 2026-10-09): 2026-10-09
