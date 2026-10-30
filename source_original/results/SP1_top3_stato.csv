@@ -1,0 +1,154 @@
+indice,anno,pos,ticker,societa,rendimento_anno,rendimento_anno_successivo,serie_ricostruita,quotata_oggi,uscita_dal_listino,esito_societario,fonte_esito,sparita_entro_anno_successivo
+SPX,1996,1,DELL-201310,Dell (1988-2013),2.0684377707190302,2.162055335968377,False,no,2013-10-29,"acquisita (LBO) da Michael Dell e Silver Lake, ott-2013; tornata in Borsa nel 2018 (ticker DELL)",Wikipedia change log / S&P DJI,no
+SPX,1996,2,TJX,TJX Companies,1.5355387510202898,0.4616061400201199,False,si,,,,no
+SPX,1996,3,RDC,Rowan Companies,1.3513513513513518,0.348364279398762,False,no,2019-04-10,Rowan Companies: uscita dall'S&P 500 nel 2014; fusa con Ensco (Valaris) nel 2019,Wikipedia change log; comunicati societari,no
+SPX,1997,1,DELL-201310,Dell (1988-2013),2.162055335968377,2.4852380952380946,False,no,2013-10-29,"acquisita (LBO) da Michael Dell e Silver Lake, ott-2013; tornata in Borsa nel 2018 (ticker DELL)",Wikipedia change log / S&P DJI,no
+SPX,1997,2,NAV,Navistar International,1.6115789473684212,0.1487303506650543,False,no,2021-06-30,Navistar: acquisita da Traton (gruppo Volkswagen) nel 2021,comunicati societari,no
+SPX,1997,3,CINF,Cincinnati Financial,1.2124596291107177,-0.2066883149743129,False,si,,,,no
+SPX,1998,1,DELL-201310,Dell (1988-2013),2.4852380952380946,0.3936330099740397,False,no,2013-10-29,"acquisita (LBO) da Michael Dell e Silver Lake, ott-2013; tornata in Borsa nel 2018 (ticker DELL)",Wikipedia change log / S&P DJI,no
+SPX,1998,2,AAPL,Apple Inc.,2.119030954038371,1.5114537545147284,False,si,,,,no
+SPX,1998,3,EMC-201609,EMC Corp.,2.097667638483965,1.5717647058823547,False,no,2016-09-06,"EMC: acquisita da Dell, set-2016",Wikipedia change log / S&P DJI,no
+SPX,1999,1,QCOM,Qualcomm,26.19421189361034,-0.5333569907735983,False,si,,,,no
+SPX,1999,2,PATCH_PCS-2000,Sprint PCS Group (serie ricostruita),3.4324432000000007,-0.601039896010399,True,no,2004-04,Sprint PCS (tracking stock): ricombinata nelle azioni Sprint FON nel 2004,comunicati societari Sprint,no
+SPX,1999,3,PATCH_NXTL-2000,Nextel Communications (serie ricostruita),3.3654365000000004,-0.5200479952004801,True,no,2005-08,"Nextel: fusa con Sprint (Sprint Nextel), ago-2005",comunicati societari,no
+SPX,2000,1,PATCH_RBK-2001,Reebok International (serie ricostruita),2.34,-0.031,True,no,2006-01,"Reebok: acquisita da Adidas, gen-2006",comunicati societari,no
+SPX,2000,2,PATCH_DYN-2001,Dynegy (serie ricostruita),2.2023202,-0.5420457954204579,True,no,2012 (fuori S&P 500 dal 2009-12),Dynegy: uscita dall'S&P 500 nel 2009; procedura di Chapter 11 tra il 2011 e il 2012 (un decennio dopo); fusa in Vistra nel 2018,Wikipedia change log; comunicati societari,no
+SPX,2000,3,EOG,EOG Resources,2.126097475633029,-0.2811242665394836,False,si,,,,no
+SPX,2001,1,NVDA,Nvidia,3.0835612426806964,-0.8279515685269516,False,si,,,,no
+SPX,2001,2,ODP,Office Depot (ODP Corp.),1.6021052631578887,-0.2038834951456318,False,no,2025-12-09,Office Depot / ODP Corp.: uscita dall'S&P 500 nel 2010; acquisita da Atlas Holdings nel 2025,Wikipedia change log; comunicati societari,no
+SPX,2001,3,JCP,J.C. Penney,1.5467464866895493,-0.1217891811704696,False,no,2018-03-27,J.C. Penney: uscita dall'S&P 500 nel 2013; Chapter 11 nel 2020 (diciannove anni dopo). Prezzi del dataset fermi al 27-3-2018,comunicati societari,no
+SPX,2002,1,PATCH_PVN-2003,Providian Financial (serie ricostruita),0.8279999999999998,0.794,True,no,2005-10,"Providian: acquisita da Washington Mutual, ott-2005",comunicati societari,no
+SPX,2002,2,BSX,Boston Scientific,0.7628523622852028,0.729068576000979,False,si,,,,no
+SPX,2002,3,NEM,Newmont,0.5260109349283353,0.6826284303913903,False,si,,,,no
+SPX,2003,1,PATCH_AV-2004,Avaya (serie ricostruita),4.28,0.33,True,no,2007-10,"Avaya: acquisita (LBO Silver Lake / TPG), ott-2007",Wikipedia change log / S&P DJI,no
+SPX,2003,2,WMB,Williams Companies,2.6594266603787062,0.6688110506465086,False,si,,,,no
+SPX,2003,3,PATCH_DYN-2004,Dynegy (serie ricostruita),2.626,0.0789999999999999,True,no,2012 (fuori S&P 500 dal 2009-12),come sopra (Dynegy),Wikipedia change log; comunicati societari,no
+SPX,2004,1,ADSK,Autodesk,2.0961574190572736,0.132335981349877,False,si,,,,no
+SPX,2004,2,AAPL,Apple Inc.,2.0135715226224065,1.2326088414525749,False,si,,,,no
+SPX,2004,3,PATCH_TXU-2005,TXU Corp. (serie ricostruita),1.7800000000000002,0.5989999999999998,True,no,2007-10,"TXU: acquisita (LBO KKR / TPG, poi Energy Future Holdings), ott-2007",comunicati societari,no
+SPX,2005,1,VLO,Valero Energy,1.284529101438964,-0.0033149086992187,False,si,,,,no
+SPX,2005,2,AAPL,Apple Inc.,1.2326088414525749,0.1801362556315069,False,si,,,,no
+SPX,2005,3,ESRX-201812,Express Scripts,1.1925693354264777,-0.1455847255369931,False,no,2018-12-20,"Express Scripts: acquisita da Cigna, dic-2018",Wikipedia change log / S&P DJI,no
+SPX,2006,1,ATI,ATI Inc. (Allegheny Technologies),1.529479116072593,-0.0417969641614542,False,si,,,,no
+SPX,2006,2,TEX,Terex,1.1744107802057546,0.015329789961286,False,si,,,,no
+SPX,2006,3,NVDA,Nvidia,1.024613691889447,0.3788173246211617,False,si,,,,no
+SPX,2007,1,NOV,NOV Inc. (National Oilwell Varco),1.4014382867791713,-0.667301913457319,False,si,,,,no
+SPX,2007,2,AMZN,Amazon,1.3476937927307593,-0.4464594326049557,False,si,,,,no
+SPX,2007,3,J,Jacobs Solutions,1.3451067790871782,-0.4969145288904402,False,si,,,,no
+SPX,2008,1,FDO-201507,Family Dollar Stores,0.3862698383692622,0.0873519503901578,False,no,2015-07-06,"Family Dollar: acquisita da Dollar Tree, lug-2015",Wikipedia change log / S&P DJI,no
+SPX,2008,2,PATCH_UST-2009,UST Inc. (serie ricostruita),0.266,0.0,True,no,2009-01-06,"UST Inc.: acquisita da Altria per $69,50 in contanti, 6-gen-2009",8-K Altria gen-2009; CNN 31-12-2008,si
+SPX,2008,3,HRB,H&R Block,0.2581651442097337,0.0300640226136217,False,si,,,,no
+SPX,2009,1,XL-201809,XL Capital / XL Group,4.194125158943846,0.2155247524338825,False,no,2018-09-11,"XL Group: acquisita da AXA, set-2018",Wikipedia change log / S&P DJI,no
+SPX,2009,2,THC,Tenet Healthcare,3.686956502809867,0.2411874254057251,False,si,,,,no
+SPX,2009,3,AMD,Advanced Micro Devices,3.4814814446884927,-0.1549586728006576,False,si,,,,no
+SPX,2010,1,NFLX,Netflix,2.189326542493605,-0.6056346526872955,False,si,,,,no
+SPX,2010,2,FFIV,"F5, Inc.",1.4572399596478929,-0.184695760903129,False,si,,,,no
+SPX,2010,3,CMI,Cummins,1.4269448675698189,-0.1892112507746384,False,si,,,,no
+SPX,2011,1,CTRA,Coterra Energy (ex Cabot Oil & Gas),1.0095825556418223,0.3129308296115018,False,no,2026-05-06,"Coterra Energy (ex Cabot Oil & Gas): acquisita da Devon Energy, mag-2026",Wikipedia change log / S&P DJI,no
+SPX,2011,2,ISRG,Intuitive Surgical,0.7963530665880965,0.059091612843523,False,si,,,,no
+SPX,2011,3,MA,Mastercard,0.6671966217799639,0.3209299002244314,False,si,,,,no
+SPX,2012,1,PHM,PulteGroup,1.8779714757671884,0.1314041730375235,False,si,,,,no
+SPX,2012,2,S-202004,Sprint Nextel / Sprint Corp.,1.4230769230769198,0.8959435626102297,False,no,2020-03-31,"Sprint: uscita dall'S&P 500 nel 2013 (SoftBank); fusa con T-Mobile US, apr-2020",Wikipedia change log; comunicati societari,no
+SPX,2012,3,WHR,Whirlpool,1.2025549172340684,0.5706618976833735,False,si,,,,no
+SPX,2013,1,NFLX,Netflix,2.976348016430466,-0.0721404662868582,False,si,,,,no
+SPX,2013,2,BBY,Best Buy,2.442021456352311,0.0007522024544124,False,si,,,,no
+SPX,2013,3,MU,Micron Technology,2.430599286519257,0.6096550952429058,False,si,,,,no
+SPX,2014,1,LUV,Southwest Airlines,1.2630596092685833,0.0243810474024241,False,si,,,,no
+SPX,2014,2,EA,Electronic Arts Inc,1.0494768962510914,0.4616611719663941,False,no,2026-08-04,"Electronic Arts: acquisita dal consorzio PIF / Silver Lake / Affinity Partners, ago-2026",Wikipedia change log / S&P DJI,no
+SPX,2014,3,EW,Edwards Lifesciences,0.9370437471116764,0.2400691640745711,False,si,,,,no
+SPX,2015,1,NFLX,Netflix,1.3437836426593366,0.0823570914250018,False,si,,,,no
+SPX,2015,2,AMZN,Amazon,1.1778313909946103,0.1094557245295051,False,si,,,,no
+SPX,2015,3,ATVI,Activision Blizzard,0.94075585754814,-0.0595749704172399,False,no,2023-10-12,"Activision Blizzard: acquisita da Microsoft, ott-2023",Wikipedia change log / S&P DJI,no
+SPX,2016,1,NVDA,Nvidia,2.269602773996146,0.8198790805467484,False,si,,,,no
+SPX,2016,2,OKE,Oneok,1.4962491663840385,-0.0211519905424236,False,si,,,,no
+SPX,2016,3,FCX,Freeport-McMoRan,0.9483012729016542,0.4374525919372076,False,si,,,,no
+SPX,2017,1,NRG,NRG Energy,1.3369417138074329,0.3958954099242078,False,si,,,,no
+SPX,2017,2,ALGN,Align Technology,1.311349306040952,-0.0574283704280976,False,si,,,,no
+SPX,2017,3,VRTX,Vertex Pharmaceuticals,1.034206655831345,0.1057654213196419,False,si,,,,no
+SPX,2018,1,AMD,Advanced Micro Devices,0.795719801943733,1.4842905138021374,False,si,,,,no
+SPX,2018,2,ABMD,Abiomed,0.7343791686676271,-0.475172286487817,False,no,2022-12-21,"Abiomed: acquisita da Johnson & Johnson, dic-2022",Wikipedia change log / S&P DJI,no
+SPX,2018,3,FTNT,Fortinet,0.6120394344006199,0.515831223347593,False,si,,,,no
+SPX,2019,1,AMD,Advanced Micro Devices,1.4842905138021374,0.9997818984714926,False,si,,,,no
+SPX,2019,2,LRCX,Lam Research,1.1933347183808531,0.6418036527664683,False,si,,,,no
+SPX,2019,3,KLAC,KLA Corporation,1.039877364704553,0.4794207290916403,False,si,,,,no
+SPX,2020,1,TSLA,"Tesla, Inc.",7.434369946079432,0.4975555924013577,False,si,,,,no
+SPX,2020,2,ETSY,Etsy,3.0160272398667045,0.2306222131118718,False,si,,,,no
+SPX,2020,3,CARR,Carrier Global,2.1723808388612,0.4530971060193272,False,si,,,,no
+SPX,2021,1,DVN,Devon Energy,1.958916509194,0.5086406370714356,False,si,,,,no
+SPX,2021,2,MRO,Marathon Oil,1.4977321878369452,0.6691162051617043,False,no,2024-11-21,"Marathon Oil: acquisita da ConocoPhillips, nov-2024",Wikipedia change log / S&P DJI,no
+SPX,2021,3,BBWI,Bath & Body Works (ex L Brands),1.4448931105198124,-0.3839608034500247,False,si,,,,no
+SPX,2022,1,OXY,Occidental Petroleum,1.1909835693310429,-0.0407778650525161,False,si,,,,no
+SPX,2022,2,CEG,Constellation Energy,1.0712945197615469,0.3723903835037503,False,si,,,,no
+SPX,2022,3,HES,Hess Corporation,0.9402207584655776,0.0289780950254852,False,no,2025-07-17,"Hess: acquisita da Chevron, lug-2025",Wikipedia change log / S&P DJI,no
+SPX,2023,1,NVDA,Nvidia,2.390171887020978,1.7124928153893948,False,si,,,,no
+SPX,2023,2,META,Meta Platforms,1.9413329086468416,0.6604888417932748,False,si,,,,no
+SPX,2023,3,RCL,Royal Caribbean Group,1.6196642665123604,0.789831234398964,False,si,,,,no
+SPX,2024,1,PLTR,Palantir Technologies,3.4047755921584306,1.350257919544839,False,si,,,,no
+SPX,2024,2,VST,Vistra Corp.,2.6152912317932584,0.1765698219760283,False,si,,,,no
+SPX,2024,3,NVDA,Nvidia,1.7124928153893948,0.3891654094999071,False,si,,,,no
+SPX,2025,1,SNDK,Sandisk,5.59388902452257,5.663661276230744,False,si,,,,no
+SPX,2025,2,WDC,Western Digital,2.858749725930938,1.3085933131894545,False,si,,,,no
+SPX,2025,3,MU,Micron Technology,2.402392600493529,2.607408859520062,False,si,,,,no
+SPX,2026,1,MRNA,Moderna,6.629705043957304,,False,si,,,,no
+SPX,2026,2,SNDK,Sandisk,5.663661276230744,,False,si,,,,no
+SPX,2026,3,DELL,Dell Technologies,3.698291178621093,,False,si,,,,no
+NDX,2007,1,BIDU,"Baidu, Inc.",2.459046885926284,-0.6650333423921793,False,si,,,,no
+NDX,2007,2,ISRG,Intuitive Surgical,2.3680917484400115,-0.606842119472703,False,si,,,,no
+NDX,2007,3,FWLT-201412,Foster Wheeler,1.8113891911498008,-0.6983615017417113,False,no,2014-12-03,"Foster Wheeler: acquisita da AMEC, nov-2014",comunicati societari,no
+NDX,2008,1,VRTX,Vertex Pharmaceuticals,0.3077916383739174,0.4104674015086387,False,si,,,,no
+NDX,2008,2,AMGN,Amgen,0.2435400884526795,-0.0204329057173296,False,si,,,,no
+NDX,2008,3,CELG,Celgene,0.1962778619346454,0.0072358900144708,False,no,2019-11-20,"Celgene: acquisita da Bristol-Myers Squibb, nov-2019",Wikipedia change log / S&P DJI,no
+NDX,2009,1,STX,Seagate Technology,3.138511628608933,-0.1737218641181386,False,si,,,,no
+NDX,2009,2,BIDU,"Baidu, Inc.",2.1494983988687086,1.3473481069091076,False,si,,,,no
+NDX,2009,3,EXPE,Expedia Group,2.122572846715599,-0.01312101528092,False,si,,,,no
+NDX,2010,1,NFLX,Netflix,2.189326542493605,-0.6056346526872955,False,si,,,,no
+NDX,2010,2,FFIV,"F5, Inc.",1.4572399596478929,-0.184695760903129,False,si,,,,no
+NDX,2010,3,BIDU,"Baidu, Inc.",1.3473481069091076,0.2065679342542667,False,si,,,,no
+NDX,2011,1,ISRG,Intuitive Surgical,0.7963530665880965,0.059091612843523,False,si,,,,no
+NDX,2011,2,ALXN,Alexion Pharmaceuticals,0.7752948479205488,0.3110489510489498,False,no,2021-07-20,"Alexion: acquisita da AstraZeneca, lug-2021",Wikipedia change log / S&P DJI,no
+NDX,2011,3,MNST,Monster Beverage,0.7624334940679736,0.1469501200859437,False,si,,,,no
+NDX,2012,1,REGN,Regeneron Pharmaceuticals,2.086235005996294,0.6089318901631255,False,si,,,,no
+NDX,2012,2,EXPE,Expedia Group,1.1558558986947824,0.1448906452955922,False,si,,,,no
+NDX,2012,3,EQIX,Equinix,1.0335305112950777,-0.1394277421217251,False,si,,,,no
+NDX,2013,1,TSLA,"Tesla, Inc.",3.4413941131092427,0.478494877242098,False,si,,,,no
+NDX,2013,2,NFLX,Netflix,2.976348016430466,-0.0721404662868582,False,si,,,,no
+NDX,2013,3,MU,Micron Technology,2.430599286519257,0.6096550952429058,False,si,,,,no
+NDX,2014,1,AAL,American Airlines Group Inc.,1.134689108645741,-0.2035442752526743,False,si,,,,no
+NDX,2014,2,EA,Electronic Arts Inc,1.0494768962510914,0.4616611719663941,False,no,2026-08-04,"Electronic Arts: acquisita dal consorzio PIF / Silver Lake / Affinity Partners, ago-2026",Wikipedia change log / S&P DJI,no
+NDX,2014,3,AVGO,Broadcom,0.9321692809787498,0.4603701684444312,False,si,,,,no
+NDX,2015,1,NFLX,Netflix,1.3437836426593366,0.0823570914250018,False,si,,,,no
+NDX,2015,2,AMZN,Amazon,1.1778313909946103,0.1094557245295051,False,si,,,,no
+NDX,2015,3,TCOM,Trip.com Group Limited,1.0364836469089038,-0.1366285924486658,False,si,,,,no
+NDX,2016,1,NVDA,Nvidia,2.269602773996146,0.8198790805467484,False,si,,,,no
+NDX,2016,2,AMAT,Applied Materials,0.7570240724147312,0.5986127354975908,False,si,,,,no
+NDX,2016,3,CHTR,Charter Communications,0.5724740788100178,0.1668518192098562,False,si,,,,no
+NDX,2017,1,ALGN,Align Technology,1.311349306040952,-0.0574283704280976,False,si,,,,no
+NDX,2017,2,TTWO,Take-Two Interactive,1.2272265518403342,-0.0623063983781038,False,si,,,,no
+NDX,2017,3,VRTX,Vertex Pharmaceuticals,1.034206655831345,0.1057654213196419,False,si,,,,no
+NDX,2018,1,AMD,Advanced Micro Devices,0.795719801943733,1.4842905138021374,False,si,,,,no
+NDX,2018,2,WDAY,"Workday, Inc.",0.56949082001745,0.029872272615556,False,si,,,,no
+NDX,2018,3,LULU,Lululemon Athletica,0.5473979676433665,0.9050242332555776,False,si,,,,no
+NDX,2019,1,AMD,Advanced Micro Devices,1.4842905138021374,0.9997818984714926,False,si,,,,no
+NDX,2019,2,LRCX,Lam Research,1.1933347183808531,0.6418036527664683,False,si,,,,no
+NDX,2019,3,KLAC,KLA Corporation,1.039877364704553,0.4794207290916403,False,si,,,,no
+NDX,2020,1,TSLA,"Tesla, Inc.",7.434369946079432,0.4975555924013577,False,si,,,,no
+NDX,2020,2,PTON,"Peloton Interactive, Inc.",4.34225363586659,-0.7643026757591831,False,si,,,,no
+NDX,2020,3,MRNA,Moderna,4.341002253226281,1.4311284843481662,False,si,,,,no
+NDX,2021,1,LCID,"Lucid Group, Inc.",2.801198859142549,-0.8204993349493881,False,si,,,,no
+NDX,2021,2,MRNA,Moderna,1.4311284843481662,-0.2927789663014342,False,si,,,,no
+NDX,2021,3,FTNT,Fortinet,1.419713147755186,-0.3198386024239356,False,si,,,,no
+NDX,2022,1,CEG,Constellation Energy,1.0712945197615469,0.3723903835037503,False,si,,,,no
+NDX,2022,2,ENPH,"Enphase Energy, Inc.",0.4483436532146216,-0.5012831987804025,False,si,,,,no
+NDX,2022,3,PDD,PDD Holdings Inc.,0.3987993845447177,0.7941139433892399,False,si,,,,no
+NDX,2023,1,NVDA,Nvidia,2.390171887020978,1.7124928153893948,False,si,,,,no
+NDX,2023,2,META,Meta Platforms,1.9413329086468416,0.6604888417932748,False,si,,,,no
+NDX,2023,3,CRWD,CrowdStrike,1.4249216934574664,0.3401221754925638,False,si,,,,no
+NDX,2024,1,APP,AppLovin,7.126223311716396,1.0807832358472758,False,si,,,,no
+NDX,2024,2,MSTR,Strategy Inc,3.585351965651417,-0.4753470081139963,False,si,,,,no
+NDX,2024,3,PLTR,Palantir Technologies,3.4047755921584306,1.350257919544839,False,si,,,,no
+NDX,2025,1,WDC,Western Digital,2.858749725930938,1.3085933131894545,False,si,,,,no
+NDX,2025,2,MU,Micron Technology,2.402392600493529,2.607408859520062,False,si,,,,no
+NDX,2025,3,STX,Seagate Technology,2.2526242463876467,1.852515660518672,False,si,,,,no
+NDX,2026,1,MRNA,Moderna,6.629705043957304,,False,si,,,,no
+NDX,2026,2,SNDK,Sandisk,5.663661276230744,,False,si,,,,no
+NDX,2026,3,MU,Micron Technology,2.607408859520062,,False,si,,,,no

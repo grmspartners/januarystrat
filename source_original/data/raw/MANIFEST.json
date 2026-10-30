@@ -1,0 +1,14 @@
+{
+ "jb_prices.parquet": {
+  "bytes": 166227925,
+  "sha256": "c82175764526568390d33c57c08c00722e725fe48591ae82f7e27eaceac230f3"
+ },
+ "jb_membership_intervals.parquet": {
+  "bytes": 24310,
+  "sha256": "a8f3ebcedffb431a82fb66a66458a5bc48dd1b0a961e0e9fb1e90f9835a62a23"
+ },
+ "jb_renames.csv": {
+  "bytes": 393,
+  "sha256": "e571766f6f362e38d61d7c24d16e5d99db3776b7faea1b94d0c7b0e202d327a0"
+ }
+}

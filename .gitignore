@@ -1,0 +1,18 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE and system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Reconstructed large dataset: rebuild from frozen parts
+source_original/data/raw/jb_prices.parquet
+
+# Temporary files
+*.tmp
+*.log

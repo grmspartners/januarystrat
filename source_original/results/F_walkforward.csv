@@ -1,0 +1,14 @@
+year,chosen,ret
+2014,"{""top_n"": 3, ""stop"": 0.5, ""lookback_m"": 6, ""rebalance_m"": 6, ""after_stop"": ""cash""}",-0.2110206010633663
+2015,"{""top_n"": 5, ""stop"": 0.25, ""lookback_m"": 6, ""rebalance_m"": 6, ""after_stop"": ""cash""}",-0.026234217019482253
+2016,"{""top_n"": 5, ""stop"": 0.5, ""lookback_m"": 6, ""rebalance_m"": 6, ""after_stop"": ""cash""}",0.12379106336710688
+2017,"{""top_n"": 1, ""stop"": 0.25, ""lookback_m"": 6, ""rebalance_m"": 12, ""after_stop"": ""leader""}",0.3512071115092956
+2018,"{""top_n"": 1, ""stop"": 0.25, ""lookback_m"": 6, ""rebalance_m"": 12, ""after_stop"": ""leader""}",-0.3450909352439113
+2019,"{""top_n"": 1, ""stop"": 0.25, ""lookback_m"": 6, ""rebalance_m"": 12, ""after_stop"": ""leader""}",0.18006799427135944
+2020,"{""top_n"": 1, ""stop"": 0.25, ""lookback_m"": 6, ""rebalance_m"": 12, ""after_stop"": ""leader""}",-0.3250745055308697
+2021,"{""top_n"": 5, ""stop"": null, ""lookback_m"": 12, ""rebalance_m"": 12, ""after_stop"": ""cash""}",0.43316711578503075
+2022,"{""top_n"": 5, ""stop"": null, ""lookback_m"": 12, ""rebalance_m"": 12, ""after_stop"": ""cash""}",-0.021373947747867383
+2023,"{""top_n"": 1, ""stop"": 0.35, ""lookback_m"": 12, ""rebalance_m"": 12, ""after_stop"": ""leader""}",-0.14172841388386803
+2024,"{""top_n"": 5, ""stop"": null, ""lookback_m"": 12, ""rebalance_m"": 12, ""after_stop"": ""cash""}",0.7204535548003497
+2025,"{""top_n"": 3, ""stop"": 0.5, ""lookback_m"": 12, ""rebalance_m"": 12, ""after_stop"": ""leader""}",0.22504004743585804
+2026,"{""top_n"": 1, ""stop"": 0.35, ""lookback_m"": 12, ""rebalance_m"": 12, ""after_stop"": ""leader""}",4.833684228908824

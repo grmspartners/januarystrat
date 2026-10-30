@@ -1,0 +1,13 @@
+{
+ "proxy_sigma_reconstructed": 0.5264208872745333,
+ "cost": 0.001,
+ "amc": 0.005,
+ "bollo": 0.002,
+ "cg": 0.26,
+ "div_net": 0.371,
+ "div_wrap": 0.15,
+ "stop": 0.35,
+ "leaps_prem": 0.35,
+ "leaps_weight": 0.35,
+ "last_date": "2026-10-09"
+}

@@ -1,0 +1,31 @@
+{
+ "satellite_rule": "top2 stop35 keep",
+ "satellite_kwargs": {
+  "top_n": 2,
+  "stop": 0.35,
+  "regime_filter": null,
+  "keep_winners": true
+ },
+ "weight_cap": 0.6,
+ "weight_recommended": 0.3,
+ "rule_best_standalone": "top1 stop35 keep",
+ "dd_tolerance_pp": 5.0,
+ "dsr_48_trials": 0.9988249089937078,
+ "psr_vs_etf": 0.7357966391927391,
+ "sharpe_satellite_long": 0.6465687953375692,
+ "sharpe_etf_long": 0.530674021955379,
+ "wf_cagr": 0.1987345842988415,
+ "wf_rule_cagr": 0.18705338141817474,
+ "wf_etf_cagr": 0.11262705150694585,
+ "wf_choices": {
+  "top1 stop35 regime keep": 19,
+  "top1 stop35 keep": 1
+ },
+ "regime": {
+  "date": "2026-10-09",
+  "sp500tr": 60.869738361563556,
+  "sma10": 56.93340723592153,
+  "risk_on": true
+ },
+ "last_date": "2026-10-09"
+}

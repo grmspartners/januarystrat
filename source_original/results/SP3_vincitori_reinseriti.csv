@@ -1,0 +1,10 @@
+anno_classifica,societa,ticker_sintetico,rendimento_anno_classifica,anno_detenzione,rendimento_anno_detenzione,stop_35_toccato,fonti,cautela
+1999,Sprint PCS Group,PATCH_PCS-2000,3.432,2000,-0.601,"si, il 2000-09-15",Sprint DEF 14A 2001 (tabella TSR); Sprint 10-K 2000 (min/max trimestrali),
+1999,Nextel Communications,PATCH_NXTL-2000,3.365,2000,-0.52,"si, il 2000-11-10",Nextel DEF 14A 2002 (TSR); Nextel 10-K 2000,
+2000,Reebok International,PATCH_RBK-2001,2.34,2001,-0.031,no,"S&P DJI, 50 migliori rendimenti a 1 anno 1980-2022 (prezzo); Reebok 10-K 2001/2002","rendimento 2001 da verificare: intervallo -8,6% / -1,4% (usato -3,1%); stop non toccato"
+2000,Dynegy,PATCH_DYN-2001,2.202,2001,-0.542,"si, il 2001-09-17",Dynegy DEF 14A 2002 e 2005 (TSR S&P IMS); Dynegy 10-K 2001,"S&P DJI riporta +361% (prezzo non rettificato per il cambio 0,69 Illinova); usato +220,2% TSR"
+2002,Providian Financial,PATCH_PVN-2003,0.828,2003,0.794,no,Providian DEF 14A 2004/2005 (TSR); 10-K 2003,
+2003,Avaya,PATCH_AV-2004,4.28,2004,0.33,no,Forbes 5-1-2004; S&P DJI; Avaya 10-K FY2004-05,rendimento 2004 ~+33% da verificare; stop non toccato
+2003,Dynegy,PATCH_DYN-2004,2.626,2004,0.079,no,Dynegy DEF 14A 2005 (TSR); 10-K 2004,
+2004,TXU Corp.,PATCH_TXU-2005,1.78,2005,0.599,no,TXU DEF 14A 2006 (TSR); 10-K 2005; CNN/Money,
+2008,UST Inc.,PATCH_UST-2009,0.266,2009,0.0,no,CNN/Money 31-12-2008; 8-K Altria gen-2009,

@@ -1,0 +1,7 @@
+{
+ "n_trials": 84,
+ "best": "{\"top_n\": 1, \"stop\": 0.35, \"lookback_m\": 12, \"rebalance_m\": 12, \"after_stop\": \"leader\"}",
+ "best_sharpe_ann": 0.9568110150847068,
+ "psr_vs_zero": 0.9999782791859664,
+ "dsr": 0.9973931079965939
+}
