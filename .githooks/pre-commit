@@ -1,0 +1,15 @@
+#!/bin/sh
+# Blocks the commit if source_original/ is staged for change or differs on disk
+# from its SHA-256 manifest (tests/fixtures/source_original.sha256).
+# Enable once per clone:  git config core.hooksPath .githooks
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+if ! git diff --cached --quiet -- source_original; then
+    echo "pre-commit: changes to source_original/ are staged; source_original/ is immutable." >&2
+    git diff --cached --name-status -- source_original >&2
+    exit 1
+fi
+
+PY=python3
+[ -x .venv/bin/python ] && PY=.venv/bin/python
+exec "$PY" -m research.integrity verify --quiet

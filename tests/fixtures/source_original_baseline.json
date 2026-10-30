@@ -1,0 +1,15 @@
+{
+  "description": "Reference snapshot of source_original/ protected by tests/test_source_original_integrity.py",
+  "baseline_commit": "20b2ef1dab49aa7d6de303124d5c539b75e05231",
+  "generated_utc": "2026-10-30T17:58:36Z",
+  "generated_by": "python3 -m research.integrity generate --out tests/fixtures/source_original.sha256",
+  "cross_checks": [
+    "git diff --quiet 20b2ef1 -- source_original (no untracked files)",
+    "identical to the independent sha256sum baseline of phase 0 (same day)",
+    "sha256sum -c tests/fixtures/source_original.sha256 run inside source_original/"
+  ],
+  "manifest": "tests/fixtures/source_original.sha256",
+  "manifest_sha256": "0d709dfbce3acefedf03121a60afc333e90daa1bc4a863170be7fbaf6282792d",
+  "n_files": 160,
+  "total_bytes": 212809099
+}
