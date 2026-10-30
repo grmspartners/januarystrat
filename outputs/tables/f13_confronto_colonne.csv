@@ -1,0 +1,166 @@
+file,colonna,vista,tema,celle,identico,entro_tolleranza,diverso,max_diff_assoluta,max_diff_relativa
+AN_top3_anno.csv,anno_detenzione,,titoli selezionati,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,ticker,,titoli selezionati,90,90,0,0,,
+AN_top3_anno.csv,label,,titoli selezionati,90,90,0,0,,
+AN_top3_anno.csv,societa,,titoli selezionati,90,90,0,0,,
+AN_top3_anno.csv,serie_ricostruita,,titoli selezionati,90,90,0,0,,
+AN_top3_anno.csv,rend_T0,,titoli selezionati,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,parziale_T0,,titoli selezionati,90,90,0,0,,
+AN_top3_anno.csv,rend_T1_senza_stop,,rendimenti delle tre posizioni,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,stop_toccato,,date e livelli di stop,90,90,0,0,,
+AN_top3_anno.csv,data_stop,,date e livelli di stop,90,90,0,0,,
+AN_top3_anno.csv,stop_in_gap,,date e livelli di stop,90,90,0,0,,
+AN_top3_anno.csv,rend_T1_con_stop,,rendimenti delle tre posizioni,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,prezzo_ingresso_rett,,prezzi di ingresso e uscita,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,prezzo_uscita_rett,,prezzi di ingresso e uscita,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,dividendi_T1,,dividendi,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,dividendi_T1_con_stop,,dividendi,90,90,0,0,0.0,0.0
+AN_top3_anno.csv,uscita_dal_listino_nell_anno,,titoli delistati,90,90,0,0,,
+AN_top3_anno.csv,ultimo_prezzo,,titoli delistati,90,90,0,0,,
+AN_rendimenti_annui.csv,SP500_TR,,benchmark (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,SP500_ETF,,benchmark (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,top1_senza_stop,,rendimenti annuali delle strategie (lordo),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,top1_con_stop,,rendimenti annuali delle strategie (lordo),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,top3_senza_stop,,rendimenti annuali delle strategie (lordo),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,top3_con_stop,,rendimenti annuali delle strategie (lordo),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,div_top1,,dividendi,30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,div_top1_stop,,dividendi,30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,div_top3,,dividendi,30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,div_top3_stop,,dividendi,30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,titoli_fermati_top3,,date e livelli di stop,30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_rend_opzione,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_K_over_S,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_iv_entry,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_iv_exit,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_T_entry,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_T_exit,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_rate,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_div_yield,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_premium_mid_over_S,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_S_change,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_intrinsic_exit_over_S0,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_value_exit_over_S0,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_expiry,,LEAPS (rendimenti annuali),30,30,0,0,,
+AN_rendimenti_annui.csv,leaps_sigma_proxy,,LEAPS (rendimenti annuali),30,30,0,0,,
+AN_rendimenti_annui.csv,leaps_rend_opzione_ottimista,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_rend_opzione_prudente,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_rend_opzione_2anni,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps_K_over_S_2anni,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65_stop,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65_ottimista,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65_stop_ottimista,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65_prudente,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65_stop_prudente,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65_2anni,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_rendimenti_annui.csv,leaps35_azione65_stop_2anni,,LEAPS (rendimenti annuali),30,30,0,0,0.0,0.0
+AN_sintesi.csv,valore_finale,Lordista,rendimento cumulato e CAGR - vista Lordista (con costi e fiscalita),35,35,0,0,0.0,0.0
+AN_sintesi.csv,valore_finale,Lordo,rendimento cumulato e CAGR,35,35,0,0,0.0,0.0
+AN_sintesi.csv,valore_finale,Nettista,rendimento cumulato e CAGR - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,cagr,Lordista,rendimento cumulato e CAGR - vista Lordista (con costi e fiscalita),35,35,0,0,0.0,0.0
+AN_sintesi.csv,cagr,Lordo,rendimento cumulato e CAGR,35,35,0,0,0.0,0.0
+AN_sintesi.csv,cagr,Nettista,rendimento cumulato e CAGR - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,peggior_anno,Lordista,metriche di rischio - vista Lordista (con costi e fiscalita),35,35,0,0,0.0,0.0
+AN_sintesi.csv,peggior_anno,Lordo,metriche di rischio,35,35,0,0,0.0,0.0
+AN_sintesi.csv,peggior_anno,Nettista,metriche di rischio - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,miglior_anno,Lordista,metriche di rischio - vista Lordista (con costi e fiscalita),35,35,0,0,0.0,0.0
+AN_sintesi.csv,miglior_anno,Lordo,metriche di rischio,35,35,0,0,0.0,0.0
+AN_sintesi.csv,miglior_anno,Nettista,metriche di rischio - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,max_drawdown_fine_anno,Lordista,metriche di rischio - vista Lordista (con costi e fiscalita),35,35,0,0,0.0,0.0
+AN_sintesi.csv,max_drawdown_fine_anno,Lordo,metriche di rischio,35,35,0,0,0.0,0.0
+AN_sintesi.csv,max_drawdown_fine_anno,Nettista,metriche di rischio - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,anni_negativi,Lordista,metriche di rischio - vista Lordista (con costi e fiscalita),35,35,0,0,0.0,0.0
+AN_sintesi.csv,anni_negativi,Lordo,metriche di rischio,35,35,0,0,0.0,0.0
+AN_sintesi.csv,anni_negativi,Nettista,metriche di rischio - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,anni,Lordista,metriche di rischio - vista Lordista (con costi e fiscalita),35,35,0,0,0.0,0.0
+AN_sintesi.csv,anni,Lordo,metriche di rischio,35,35,0,0,0.0,0.0
+AN_sintesi.csv,anni,Nettista,metriche di rischio - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,anni_sopra_SP500,Lordista,metriche di rischio - vista Lordista (con costi e fiscalita),35,35,0,0,,
+AN_sintesi.csv,anni_sopra_SP500,Lordo,metriche di rischio,35,35,0,0,0.0,0.0
+AN_sintesi.csv,anni_sopra_SP500,Nettista,metriche di rischio - vista Nettista (con costi e fiscalita),40,40,0,0,,
+AN_sintesi.csv,imposte_pagate,Lordista,costi e fiscalita - vista Lordista (con costi e fiscalita),35,35,0,0,,
+AN_sintesi.csv,imposte_pagate,Lordo,costi e fiscalita,35,35,0,0,,
+AN_sintesi.csv,imposte_pagate,Nettista,costi e fiscalita - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_sintesi.csv,minus_scadute,Lordista,costi e fiscalita - vista Lordista (con costi e fiscalita),35,35,0,0,,
+AN_sintesi.csv,minus_scadute,Lordo,costi e fiscalita,35,35,0,0,,
+AN_sintesi.csv,minus_scadute,Nettista,costi e fiscalita - vista Nettista (con costi e fiscalita),40,40,0,0,0.0,0.0
+AN_finestre_10anni.csv,SP500_lordo,,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,SP500_ETF_nettista,,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Solo vincitore, senza stop | lordo",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Solo vincitore, senza stop | nettista",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Solo vincitore, stop 35% | lordo",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Solo vincitore, stop 35% | nettista",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Prime tre, senza stop | lordo",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Prime tre, senza stop | nettista",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Prime tre, stop 35% | lordo",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,"Prime tre, stop 35% | nettista",,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,Vincitore: 35% LEAPS + 65% azione | lordo,,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,Vincitore: 35% LEAPS + 65% azione | nettista,,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,Vincitore: 35% LEAPS + 65% azione con stop | lordo,,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+AN_finestre_10anni.csv,Vincitore: 35% LEAPS + 65% azione con stop | nettista,,finestre decennali (lordo e nettista),20,20,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",valore_inizio,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",plus_minus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",minus_usate,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",imponibile,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",imposta_plus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",imposta_dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",minus_scadute,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",zainetto_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",bollo,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_senza_stop.csv",valore_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",valore_inizio,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",plus_minus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",minus_usate,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",imponibile,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",imposta_plus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",imposta_dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",minus_scadute,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",zainetto_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",bollo,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Prime_tre,_stop_35pct.csv",valore_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",valore_inizio,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",plus_minus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",minus_usate,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",imponibile,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",imposta_plus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",imposta_dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",minus_scadute,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",zainetto_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",bollo,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_senza_stop.csv",valore_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",valore_inizio,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",plus_minus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",minus_usate,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",imponibile,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",imposta_plus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",imposta_dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",minus_scadute,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",zainetto_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",bollo,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+"AN_zainetto_Solo_vincitore,_stop_35pct.csv",valore_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,valore_inizio,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,plus_minus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,minus_usate,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,imponibile,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,imposta_plus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,imposta_dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,minus_scadute,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,zainetto_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,bollo,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv,valore_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,valore_inizio,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,plus_minus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,minus_usate,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,imponibile,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,imposta_plus,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,imposta_dividendi,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,minus_scadute,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,zainetto_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,bollo,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv,valore_fine,,costi e fiscalita (registro dello zainetto),30,30,0,0,0.0,0.0

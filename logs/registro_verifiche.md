@@ -72,5 +72,46 @@ Condizioni: cartelle e protezione di `source_original/`, ambiente virtuale con v
 - **[DA CONFERMARE]** Prime sedute di SNDK (13-02-2025): negoziazioni "when-issued" o regolari.
 - **[DA CONFERMARE]** Licenze di Johnbrick123/sp500-data e di Yahoo Finance.
 - **[DA CONFERMARE]** Calendario ufficiale NYSE 2027.
-- **[IPOTESI]** Le 11.231 celle riempite col valore precedente possono nascondere stop e azzerare i rendimenti giornalieri: effetto sulla top-3 da misurare in F1.2.
-- In attesa di autorizzazione: F1.3, riproduzione del baseline (prima esecuzione di `annual_study.py`, nella copia di lavoro).
+- ~~**[IPOTESI]** Le 11.231 celle riempite col valore precedente possono nascondere stop e azzerare i rendimenti giornalieri: effetto sulla top-3 da misurare in F1.2.~~ Chiuso in Fase 1.3 (V-207): nessuna cella nelle finestre delle 90 posizioni.
+- ~~In attesa di autorizzazione: F1.3, riproduzione del baseline.~~ Autorizzata ed eseguita il 30-10-2026 (sezione seguente).
+
+---
+
+## Fase 1.3 — Riproduzione del baseline (30-10-2026), autorizzata dal committente
+
+Condizioni: solo nella copia `work/replica_originale/`; nessuno script con output verso `source_original/`; nessun download; regole originali invariate; nessuna ottimizzazione né nuovo test di performance. Rapporto: `reports/01_baseline_reproduction.md`. Anomalie: `logs/registro_anomalie.md`. Comandi: `logs/fase_1_3/comandi.md`.
+
+| ID | Ora | Oggetto | Procedura | Risultato | Evidenza | Stato |
+|---|---|---|---|---|---|---|
+| V-201 | 21:00 | Integrità prima della fase | `pytest -v`; `research.integrity verify --root work/replica_originale` | 11 test superati; copia: 25 file aggiunti (Fase 1.0), 0 modificati, 0 mancanti | `fase_1_3/integrita_prima.txt` | VERIFICATO |
+| V-202 | 21:02 | Blocco degli script non autorizzati | `research.replica_originale run experiments.py` | Rifiutato, exit 1; consentiti solo `annual_study.py` e `report_annuale_tables.py` | `fase_1_3/comandi.md` | VERIFICATO |
+| V-203 | 21:03 | Riproduzione | `research.replica_originale run annual_study.py report_annuale_tables.py` (offline, nella copia) | `annual_study.py` exit 0 in 28,8 s, 12 file; `report_annuale_tables.py` exit 0 in 1,6 s, 1 file; `source_original/` intatto prima e dopo; codice della copia invariato prima e dopo | `fase_1_3/esecuzione_*.txt` | VERIFICATO |
+| V-204 | 21:04 | Confronto byte per byte | `sha256sum` dei 12 CSV/JSON originali e riprodotti | 12/12 identici | `outputs/tables/f13_confronto_file.csv` | VERIFICATO |
+| V-205 | 21:16 | Confronto cella per cella | `research.confronto_baseline` | 6.127 celle o chiavi, 0 diverse, 0 entro tolleranza; stesse colonne e chiavi | `f13_confronto_*.csv`, `f13_discrepanze.csv`, `fase_1_3/confronto_baseline.txt` | VERIFICATO |
+| V-206 | 21:13 | I 4 stop sul vincitore | `research.controlli_f13` [C] | Date, livelli, aperture sotto il livello e rendimenti = CSV; fonte `jb:yahoo`; nessun giorno riempito o riparato; minimo prima dello stop entro 2,4-2,6% dal livello in 3 casi su 4; nessuna seconda copia Yahoo per una verifica incrociata | `f13_stop_vincitore_*.csv` | VERIFICATO (minimi: DA CONFERMARE) |
+| V-207 | 21:13 | Giorni riempiti | [A] e controllo alle date di classifica | 11.231 celle ricostruite = valore di `data_layer.py`; apertura, massimo, minimo e chiusura identici al pannello; 0 nelle finestre delle 90 posizioni; 4 membri-anno classificati toccati, il migliore 97° | `f13_ffill_*.csv` | VERIFICATO |
+| V-208 | 21:13 | Regola di riparazione | [A] | 156 serie segnalate, 24 con riparazione registrata, 132 ricostruite invariate (scarto ≤ 1,6e-14); tutte le altre colonne identiche | `fase_1_3/controlli_f13.txt` | VERIFICATO |
+| V-209 | 21:13 | Frazionamenti | [B] | 33 eventi nelle finestre; 11 con `close` grezza (WIKI, Tiingo), 0 salti nella serie rettificata; 2 scorpori registrati come frazionamenti (BBWI, WDC) | `f13_frazionamenti_posizioni.csv` | VERIFICATO |
+| V-210 | 21:13 | Base di prezzo dello stop | [B]: stop su prezzo senza dividendi (`price_index`) contro prezzo total return | Stessa data per tutte le 81 posizioni con dati reali; dividendi tra ingresso e stop o uscita al massimo 8,2% | `f13_posizioni_qualita_dati.csv` | VERIFICATO |
+| V-211 | 21:13 | Serie sintetiche | [D] | 9 su 9 nella top-3 (3 prime); 6 identiche a `patches.py`; 3 diverse solo per il fattore 1,0001 (A-001) | `f13_serie_sintetiche.csv` | VERIFICATO |
+| V-212 | 21:13 | Copertura | [E] con la definizione originale e con il file di composizione | Membri e classificati originali riprodotti 31/31; doppio conteggio di 1-4 membri nel 1999-2005 e 2008 (A-004) | `f13_copertura.csv` | VERIFICATO |
+| V-213 | 21:13 | Delisting | [F] | 10 esclusioni al giorno di decisione (8 sintetiche, MER 2008, SCG 2018), nessuna da top-3; 1 serie terminata prima di fine anno (2017); in detenzione esce solo UST 2009 | `f13_delisting_per_anno.csv`, `f13_esclusi_ultimo_giorno.csv` | VERIFICATO |
+| V-214 | 21:13 | Tempi di benchmark e strategia | [G] | Date coerenti; `SP500_TR` da chiusura a chiusura; movimento notturno di SPY: media +0,39% (da −1,66% a +1,90%); durata 2026 fissata a 0,77 = 194/252 | `f13_allineamento_benchmark.csv` | VERIFICATO |
+| V-215 | 21:13 | Liquidità e identità | [H] | 14/14 identità; liquidità a zero dopo lo stop, senza interessi né reinvestimento | `f13_identita.csv` | VERIFICATO |
+| V-216 | fine fase | Test e integrità finali | `pytest -v` (integrità + strumenti) | 16 test superati; nessun `__pycache__` in `source_original/` | `fase_1_3/integrita_dopo.txt` | VERIFICATO |
+
+### Note di procedura
+
+- **P-006** (V-206…V-211). Prima dell'esecuzione finale ho corretto quattro miei controlli; dettagli in `fase_1_3/comandi.md`. Nessun risultato errato è stato pubblicato.
+  - stop su `close` assunta rettificata per frazionamenti: 4 false differenze;
+  - indicatore unico per i salti nei giorni di frazionamento;
+  - esclusione delle sole serie riparate nel confronto dei prezzi rettificati;
+  - scarto delle serie sintetiche non spiegato.
+- **P-007** (V-203). La cartella `out/` della copia esisteva già: l'aveva creata l'import di `make_report.py` nel controllo V-110. `annual_study.py` da solo non la crea (A-006); il runner l'avrebbe creata e lo avrebbe registrato.
+
+### Punti aperti dopo la Fase 1.3
+
+- **[DA CONFERMARE]** Minimi giornalieri dei 4 stop sul vincitore con una fonte indipendente (A-009).
+- **[DA CONFERMARE]** Trattamento degli scorpori BBWI 2021 e WDC 2025 (A-008).
+- Effetto sui risultati del diverso punto di partenza di benchmark e strategia (A-005): da misurare solo in una fase autorizzata a nuovi calcoli.
+- Restano aperti i punti precedenti: documenti SEC delle serie sintetiche, SNDK "when-issued", licenze, calendario NYSE 2027.

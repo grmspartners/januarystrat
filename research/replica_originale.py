@@ -8,20 +8,27 @@ runs unchanged and writes only inside the copy. source_original/ is only read.
     python -m research.replica_originale prepare     # copy source_original/ and verify the copy
     python -m research.replica_originale run-data    # fetch_data -> parse_yahoo -> data_layer, in the copy
     python -m research.replica_originale check       # load the rebuilt panel and check it (no backtest)
+    python -m research.replica_originale run annual_study.py report_annuale_tables.py   # phase 1.3
 
 Guards, every time:
   * source_original/ is verified against its SHA-256 manifest before and after;
-  * config.ROOT of the copy must resolve inside work/replica_originale;
+  * config.ROOT (and, for `run`, config.OUT) of the copy must resolve inside work/replica_originale;
   * the original steps run with HTTP(S) proxies pointing to a closed local port,
     so any attempt to download data fails instead of silently fetching new data.
-Each step's console output is saved in logs/fase_1_0/ (.txt: *.log is ignored by Git).
+`run` also requires the copied code to be byte-identical to the original (no file of the
+copy modified or missing) and accepts only the scripts authorised for phase 1.3.
+Console output is saved in logs/fase_1_0/ (data steps) and logs/fase_1_3/ (`run`);
+.txt because *.log is ignored by Git.
 """
 from __future__ import annotations
 
 import argparse
+import ast
 import datetime as dt
+import importlib.metadata
 import json
 import os
+import shlex
 import shutil
 import subprocess
 import sys
@@ -35,7 +42,9 @@ WORK = REPO / "work"
 DEST = WORK / "replica_originale"
 CODE = DEST / "code"
 LOGS = REPO / "logs" / "fase_1_0"
+LOGS_RUN = REPO / "logs" / "fase_1_3"
 DATA_STEPS = ["fetch_data.py", "parse_yahoo.py", "data_layer.py"]
+RUN_ALLOWED = ["annual_study.py", "report_annuale_tables.py"]     # authorised on 2026-10-30 (phase 1.3)
 DEAD_PROXY = "http://127.0.0.1:9"
 
 
@@ -116,6 +125,98 @@ def run_data() -> None:
 
 def _sha256(path: Path) -> str:
     return integrity.sha256_file(path)
+
+
+def copy_out_dir() -> Path:
+    """config.OUT as the copied config.py computes it."""
+    out = subprocess.run([sys.executable, "-c", "import config; print(config.OUT)"], cwd=CODE,
+                         capture_output=True, text=True, env=offline_env(), check=True)
+    return Path(out.stdout.strip()).resolve()
+
+
+def require_copy_code_unchanged() -> None:
+    """Every file shipped in source_original/ is present and unmodified in the copy
+    (files added by the pipeline are allowed)."""
+    diff = integrity.verify(DEST)
+    if diff.modified or diff.missing:
+        sys.exit(f"the copy no longer matches the original:\n{diff.report()}")
+    print(f"copy of the original: 0 modified, 0 missing ({len(diff.added)} files added by the pipeline)")
+
+
+def module_constants(path: Path) -> dict:
+    """Top-level UPPERCASE literal assignments of a module, read without executing it."""
+    out = {}
+    for node in ast.parse(path.read_text()).body:
+        if isinstance(node, ast.Assign):
+            for t in node.targets:
+                names = [t] if isinstance(t, ast.Name) else list(getattr(t, "elts", []))
+                vals = [node.value] if isinstance(t, ast.Name) else list(getattr(node.value, "elts", []))
+                for n, v in zip(names, vals):
+                    if isinstance(n, ast.Name) and n.id.isupper():
+                        try:
+                            out[n.id] = ast.literal_eval(v)
+                        except ValueError:
+                            out[n.id] = ast.unparse(v)
+    return out
+
+
+def snapshot(folder: Path) -> dict[str, tuple[int, str]]:
+    return {p.relative_to(folder).as_posix(): (p.stat().st_size, _sha256(p))
+            for p in sorted(folder.rglob("*")) if p.is_file()}
+
+
+def versions() -> str:
+    pk = ["numpy", "pandas", "pyarrow", "scipy", "openpyxl", "matplotlib"]
+    return f"Python {sys.version.split()[0]}; " + "; ".join(f"{k} {importlib.metadata.version(k)}" for k in pk)
+
+
+def run_steps(steps: list[str]) -> None:
+    bad = [s for s in steps if s not in RUN_ALLOWED]
+    if bad:
+        sys.exit(f"not authorised in this phase: {bad} (allowed: {RUN_ALLOWED})")
+    if not CODE.is_dir():
+        sys.exit(f"{CODE} missing: run `prepare` and `run-data` first")
+    require_intact_original("before run")
+    require_copy_paths()
+    require_copy_code_unchanged()
+    out_dir = copy_out_dir()
+    if out_dir != (DEST / "out").resolve() or integrity.PROTECTED.resolve() in out_dir.parents:
+        sys.exit(f"config.OUT of the copy resolves to {out_dir}, expected {DEST / 'out'}")
+    created = not out_dir.exists()
+    out_dir.mkdir(exist_ok=True)       # annual_study.py writes to OUT without creating it (run_all.py's earlier steps do)
+    print(f"config.OUT of the copy = {out_dir}" + (" (created)" if created else ""))
+    LOGS_RUN.mkdir(parents=True, exist_ok=True)
+    for step in steps:
+        script = (CODE / step).resolve()
+        assert DEST.resolve() in script.parents, script
+        before = snapshot(out_dir)
+        cmd = [sys.executable, step]
+        t0, start = time.time(), utc_now()
+        res = subprocess.run(cmd, cwd=CODE, capture_output=True, text=True, env=offline_env())
+        secs = time.time() - t0
+        after = snapshot(out_dir)
+        written = [f"  {k}  {after[k][0]} bytes  sha256={after[k][1]}" + ("" if k not in before else "  (overwritten)")
+                   for k in sorted(after) if before.get(k) != after[k]]
+        consts = module_constants(script)
+        log = LOGS_RUN / f"esecuzione_{step.removesuffix('.py')}.txt"
+        log.write_text(
+            f"step: {step}\n"
+            f"command: cd work/replica_originale/code && {shlex.join(cmd).replace(str(REPO) + '/', '')}\n"
+            f"script sha256: {_sha256(script)} (= manifest entry code/{step})\n"
+            f"versions: {versions()}\n"
+            f"config: ROOT=work/replica_originale  OUT=work/replica_originale/out"
+            f"{'  (out/ created by the runner)' if created and step == steps[0] else ''}\n"
+            f"module constants (read with ast, not executed): {json.dumps(consts, ensure_ascii=False)}\n"
+            f"network: HTTP(S) proxies -> {DEAD_PROXY} (offline)\n"
+            f"start_utc: {start}\nduration_s: {secs:.1f}\nexit_code: {res.returncode}\n"
+            f"files written to out/:\n" + "\n".join(written) + "\n"
+            f"--- stdout ---\n{res.stdout}--- stderr ---\n{res.stderr}")
+        print(f"[{utc_now()}] {step}: exit {res.returncode} in {secs:.0f}s, {len(written)} files written "
+              f"-> {log.relative_to(REPO)}")
+        if res.returncode != 0:
+            sys.exit(f"{step} failed, see {log}")
+    require_copy_code_unchanged()
+    require_intact_original("after run")
 
 
 def check() -> None:
@@ -204,8 +305,11 @@ def main(argv=None) -> int:
     sp.add_argument("--force", action="store_true", help="delete and rebuild work/replica_originale")
     sub.add_parser("run-data")
     sub.add_parser("check")
+    sr = sub.add_parser("run", help=f"run original scripts in the copy (allowed: {', '.join(RUN_ALLOWED)})")
+    sr.add_argument("steps", nargs="+")
     args = ap.parse_args(argv)
-    {"prepare": lambda: prepare(args.force), "run-data": run_data, "check": check}[args.cmd]()
+    {"prepare": lambda: prepare(args.force), "run-data": run_data, "check": check,
+     "run": lambda: run_steps(args.steps)}[args.cmd]()
     return 0
 
 

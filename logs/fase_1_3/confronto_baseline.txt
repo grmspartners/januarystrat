@@ -1,0 +1,14 @@
+                                                           file  righe_originale  celle_confrontate  identiche  entro_tolleranza  diverse  byte_identici
+                                               AN_top3_anno.csv               90               1620       1620                 0        0           True
+                                        AN_rendimenti_annui.csv               30               1110       1110                 0        0           True
+                                                 AN_sintesi.csv              110               1100       1100                 0        0           True
+                                         AN_finestre_10anni.csv               20                280        280                 0        0           True
+                          AN_zainetto_Prime_tre,_senza_stop.csv               30                330        330                 0        0           True
+                          AN_zainetto_Prime_tre,_stop_35pct.csv               30                330        330                 0        0           True
+                     AN_zainetto_Solo_vincitore,_senza_stop.csv               30                330        330                 0        0           True
+                     AN_zainetto_Solo_vincitore,_stop_35pct.csv               30                330        330                 0        0           True
+         AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv               30                330        330                 0        0           True
+AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv               30                330        330                 0        0           True
+                                              AN_parametri.json               11                 11         11                 0        0           True
+                                     report_annuale_tables.json               26                 26         26                 0        0           True
+total cells/keys compared: 6127, different: 0, within tolerance: 0, files byte-identical: 12/12

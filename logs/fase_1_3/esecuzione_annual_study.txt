@@ -1,0 +1,93 @@
+step: annual_study.py
+command: cd work/replica_originale/code && .venv/bin/python annual_study.py
+script sha256: 409e6de13743d55a0647e6224b21ef2feb38e32b5b52c937b156a0a28053f398 (= manifest entry code/annual_study.py)
+versions: Python 3.13.17; numpy 2.5.4; pandas 3.0.6; pyarrow 26.0.0; scipy 1.18.1; openpyxl 3.1.5; matplotlib 3.11.2
+config: ROOT=work/replica_originale  OUT=work/replica_originale/out
+module constants (read with ast, not executed): {"COST": 0.001, "BOLLO": 0.002, "CG": 0.26, "DIV_NET": 0.371, "DIV_WRAP": 0.15, "AMC": 0.005, "STOP": 0.35, "LEAPS_PREM": 0.35, "LEAPS_W": 0.35, "CARRY": 4, "FIRST": 1996, "LAST": 2025}
+network: HTTP(S) proxies -> http://127.0.0.1:9 (offline)
+start_utc: 2026-10-30T21:03:18Z
+duration_s: 28.8
+exit_code: 0
+files written to out/:
+  AN_finestre_10anni.csv  6383 bytes  sha256=48f6fe3bbd403156510251fde4d649d537476abbd2dd75c7f38241c685c1df6b
+  AN_parametri.json  238 bytes  sha256=492cb08781fe795d4e4b91a6813f688ddfa835965dd006a5bdec7bb60e0e50d0
+  AN_paths.pkl  43216 bytes  sha256=978fe8c7b5f9cf6e87274fe0c8aabdc92ac772f3956663355303eaf47d3eef33
+  AN_rendimenti_annui.csv  20030 bytes  sha256=e211a0c8afb7f4836e66de46af5a221be67b7a788eaeaf605f7ee6618d513f89
+  AN_sintesi.csv  18261 bytes  sha256=4e0d880a10f3e0991156214ffd7171e7a0ce52608bc86391155da128d9052800
+  AN_top3_anno.csv  17997 bytes  sha256=516ea88b4441bffa6f7f0546420e201a647e0b45126cd23a1a66d9495cfa200e
+  AN_zainetto_Prime_tre,_senza_stop.csv  4999 bytes  sha256=25a881e20b41ea8fb72f97ffd871e0a3d40e70ac95f065cc08f8d433c06bb029
+  AN_zainetto_Prime_tre,_stop_35pct.csv  4928 bytes  sha256=ecc3076f79e272d5770ef9de38ce5020d8bbfe03e41d4bd352e6726e83bca2f9
+  AN_zainetto_Solo_vincitore,_senza_stop.csv  4585 bytes  sha256=35f433796a1290b686a42da5cfe1abcc1e29b41ac55518b322008351cdf86a35
+  AN_zainetto_Solo_vincitore,_stop_35pct.csv  4527 bytes  sha256=e0735e6df275119ab2f778f0de8584f5a408e2a866c80f8a10804c02d279455c
+  AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione.csv  4652 bytes  sha256=b9895741ee7f5d59b5ba6e07a543b74c1bb2278a3a7c7f4a89cdeeb0a9f1a496
+  AN_zainetto_Vincitore_35pct_LEAPS_piu_65pct_azione_con_stop.csv  4579 bytes  sha256=8370e387155d78114926af06f8521f472575fdeead0cc035892f2e22f0d8b6ca
+--- stdout ---
+        periodo                                  strategia    vista  valore_finale  cagr  peggior_anno  max_drawdown_fine_anno  anni_sopra_SP500
+      1997-2025              S&P 500 (indice Total Return)    Lordo       1562.835 0.099        -0.370                  -0.376               NaN
+      1997-2025                S&P 500 ETF, compra e tieni Lordista       1015.992 0.083        -0.374                  -0.385               NaN
+      1997-2025                S&P 500 ETF, compra e tieni Nettista       1015.992 0.083        -0.374                  -0.385               NaN
+      1997-2025    S&P 500 ETF, vendi e ricompra ogni anno Nettista        505.906 0.057        -0.375                  -0.415               NaN
+      1997-2025                 Solo vincitore, senza stop    Lordo      11413.478 0.177        -0.829                  -0.971              19.0
+      1997-2025                 Solo vincitore, senza stop Lordista       6403.088 0.154        -0.830                  -0.974               NaN
+      1997-2025                 Solo vincitore, senza stop Nettista       2175.296 0.112        -0.829                  -0.973               NaN
+      1997-2025                   Solo vincitore, stop 35%    Lordo     217243.843 0.303        -0.359                  -0.592              20.0
+      1997-2025                   Solo vincitore, stop 35% Lordista     121407.326 0.277        -0.365                  -0.603               NaN
+      1997-2025                   Solo vincitore, stop 35% Nettista      40657.341 0.230        -0.362                  -0.597               NaN
+      1997-2025                      Prime tre, senza stop    Lordo      17090.443 0.194        -0.570                  -0.809              19.0
+      1997-2025                      Prime tre, senza stop Lordista       9561.948 0.170        -0.573                  -0.814               NaN
+      1997-2025                      Prime tre, senza stop Nettista       4036.811 0.136        -0.571                  -0.812               NaN
+      1997-2025                        Prime tre, stop 35%    Lordo      15764.284 0.191        -0.353                  -0.682              18.0
+      1997-2025                        Prime tre, stop 35% Lordista       8862.501 0.167        -0.360                  -0.691               NaN
+      1997-2025                        Prime tre, stop 35% Nettista       4355.429 0.139        -0.358                  -0.687               NaN
+      1997-2025          Vincitore: 35% LEAPS + 65% azione    Lordo       4028.857 0.136        -0.889                  -0.997              14.0
+      1997-2025          Vincitore: 35% LEAPS + 65% azione Lordista       2290.142 0.114        -0.890                  -0.998               NaN
+      1997-2025          Vincitore: 35% LEAPS + 65% azione Nettista        669.157 0.068        -0.889                  -0.998               NaN
+      1997-2025 Vincitore: 35% LEAPS + 65% azione con stop    Lordo      76474.420 0.257        -0.583                  -0.951              14.0
+      1997-2025 Vincitore: 35% LEAPS + 65% azione con stop Lordista      43003.193 0.233        -0.586                  -0.958               NaN
+      1997-2025 Vincitore: 35% LEAPS + 65% azione con stop Nettista      12701.724 0.182        -0.584                  -0.955               NaN
+1997-2026 (YTD)              S&P 500 (indice Total Return)    Lordo       1799.490 0.102        -0.370                  -0.376               NaN
+1997-2026 (YTD)                S&P 500 ETF, compra e tieni Lordista       1161.682 0.086        -0.374                  -0.385               NaN
+1997-2026 (YTD)                S&P 500 ETF, compra e tieni Nettista       1161.682 0.086        -0.374                  -0.385               NaN
+1997-2026 (YTD)    S&P 500 ETF, vendi e ricompra ogni anno Nettista        559.878 0.060        -0.375                  -0.415               NaN
+1997-2026 (YTD)                 Solo vincitore, senza stop    Lordo      73886.090 0.248        -0.829                  -0.971              20.0
+1997-2026 (YTD)                 Solo vincitore, senza stop Lordista      40938.092 0.224        -0.830                  -0.974               NaN
+1997-2026 (YTD)                 Solo vincitore, senza stop Nettista      10943.463 0.171        -0.829                  -0.973               NaN
+1997-2026 (YTD)                   Solo vincitore, stop 35%    Lordo    1406345.961 0.378        -0.359                  -0.592              21.0
+1997-2026 (YTD)                   Solo vincitore, stop 35% Lordista     778745.713 0.351        -0.365                  -0.603               NaN
+1997-2026 (YTD)                   Solo vincitore, stop 35% Nettista     204538.679 0.292        -0.362                  -0.597               NaN
+1997-2026 (YTD)                      Prime tre, senza stop    Lordo      69538.431 0.246        -0.570                  -0.809              20.0
+1997-2026 (YTD)                      Prime tre, senza stop Lordista      38477.326 0.221        -0.573                  -0.814               NaN
+1997-2026 (YTD)                      Prime tre, senza stop Nettista      13153.301 0.178        -0.571                  -0.812               NaN
+1997-2026 (YTD)                        Prime tre, stop 35%    Lordo      64142.491 0.242        -0.353                  -0.682              19.0
+1997-2026 (YTD)                        Prime tre, stop 35% Lordista      35656.981 0.218        -0.360                  -0.691               NaN
+1997-2026 (YTD)                        Prime tre, stop 35% Nettista      14191.465 0.181        -0.358                  -0.687               NaN
+1997-2026 (YTD)          Vincitore: 35% LEAPS + 65% azione    Lordo      36792.959 0.220        -0.889                  -0.997              15.0
+1997-2026 (YTD)          Vincitore: 35% LEAPS + 65% azione Lordista      20517.378 0.196        -0.890                  -0.998               NaN
+1997-2026 (YTD)          Vincitore: 35% LEAPS + 65% azione Nettista       4677.696 0.138        -0.889                  -0.998               NaN
+1997-2026 (YTD) Vincitore: 35% LEAPS + 65% azione con stop    Lordo     698391.677 0.346        -0.583                  -0.951              15.0
+1997-2026 (YTD) Vincitore: 35% LEAPS + 65% azione con stop Lordista     388986.504 0.320        -0.586                  -0.958               NaN
+1997-2026 (YTD) Vincitore: 35% LEAPS + 65% azione con stop Nettista      88790.458 0.256        -0.584                  -0.955               NaN
+      2009-2025              S&P 500 (indice Total Return)    Lordo       1047.533 0.148        -0.181                  -0.181               NaN
+      2009-2025                S&P 500 ETF, compra e tieni Lordista        731.278 0.124        -0.185                  -0.185               NaN
+      2009-2025                S&P 500 ETF, compra e tieni Nettista        731.278 0.124        -0.185                  -0.185               NaN
+      2009-2025    S&P 500 ETF, vendi e ricompra ogni anno Nettista        503.922 0.100        -0.187                  -0.187               NaN
+      2009-2025                 Solo vincitore, senza stop    Lordo      13575.750 0.335        -0.604                  -0.604              12.0
+      2009-2025                 Solo vincitore, senza stop Lordista       8492.744 0.299        -0.608                  -0.608               NaN
+      2009-2025                 Solo vincitore, senza stop Nettista       4129.182 0.245        -0.606                  -0.606               NaN
+      2009-2025                   Solo vincitore, stop 35%    Lordo      22286.646 0.374        -0.350                  -0.350              12.0
+      2009-2025                   Solo vincitore, stop 35% Lordista      13925.441 0.337        -0.356                  -0.356               NaN
+      2009-2025                   Solo vincitore, stop 35% Nettista       6778.676 0.281        -0.353                  -0.353               NaN
+      2009-2025                      Prime tre, senza stop    Lordo       5933.558 0.271        -0.334                  -0.334              12.0
+      2009-2025                      Prime tre, senza stop Lordista       3729.485 0.237        -0.341                  -0.341               NaN
+      2009-2025                      Prime tre, senza stop Nettista       2204.999 0.200        -0.338                  -0.338               NaN
+      2009-2025                        Prime tre, stop 35%    Lordo       2326.243 0.203        -0.299                  -0.344              10.0
+      2009-2025                        Prime tre, stop 35% Lordista       1483.248 0.172        -0.306                  -0.363               NaN
+      2009-2025                        Prime tre, stop 35% Nettista       1060.369 0.149        -0.303                  -0.357               NaN
+      2009-2025          Vincitore: 35% LEAPS + 65% azione    Lordo      10967.914 0.318        -0.742                  -0.801               8.0
+      2009-2025          Vincitore: 35% LEAPS + 65% azione Lordista       6903.046 0.283        -0.745                  -0.814               NaN
+      2009-2025          Vincitore: 35% LEAPS + 65% azione Nettista       3254.048 0.227        -0.743                  -0.809               NaN
+      2009-2025 Vincitore: 35% LEAPS + 65% azione con stop    Lordo      17995.205 0.357        -0.577                  -0.674               8.0
+      2009-2025 Vincitore: 35% LEAPS + 65% azione con stop Lordista      11309.262 0.321        -0.581                  -0.695               NaN
+      2009-2025 Vincitore: 35% LEAPS + 65% azione con stop Nettista       5338.961 0.264        -0.579                  -0.687               NaN
+proxy sigma 0.5264208872745333
+--- stderr ---

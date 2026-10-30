@@ -1,0 +1,29 @@
+# Integrity and tool tests AFTER phase 1.3 (2026-10-30T21:20:24Z), HEAD bfb6a93 + uncommitted phase 1.3 files
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0 -- /home/user/januarystrat/.venv/bin/python
+rootdir: /home/user/januarystrat
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 16 items
+
+tests/test_source_original_integrity.py::test_manifest_is_the_recorded_one PASSED [  6%]
+tests/test_source_original_integrity.py::test_no_original_file_modified PASSED [ 12%]
+tests/test_source_original_integrity.py::test_no_original_file_deleted PASSED [ 18%]
+tests/test_source_original_integrity.py::test_no_file_added PASSED       [ 25%]
+tests/test_source_original_integrity.py::test_tree_matches_baseline_commit PASSED [ 31%]
+tests/test_source_original_integrity.py::test_detector_passes_identical_tree PASSED [ 37%]
+tests/test_source_original_integrity.py::test_detector_flags_modification PASSED [ 43%]
+tests/test_source_original_integrity.py::test_detector_flags_deletion PASSED [ 50%]
+tests/test_source_original_integrity.py::test_detector_flags_additions_ignored_by_git PASSED [ 56%]
+tests/test_source_original_integrity.py::test_manifest_roundtrip_and_no_overwrite PASSED [ 62%]
+tests/test_source_original_integrity.py::test_cli_exit_codes PASSED      [ 68%]
+tests/test_strumenti_fase_1_3.py::test_classify_identical_text PASSED    [ 75%]
+tests/test_strumenti_fase_1_3.py::test_classify_numeric_noise_and_real_difference PASSED [ 81%]
+tests/test_strumenti_fase_1_3.py::test_classify_text_difference PASSED   [ 87%]
+tests/test_strumenti_fase_1_3.py::test_runner_refuses_scripts_not_authorised PASSED [ 93%]
+tests/test_strumenti_fase_1_3.py::test_module_constants_reads_without_executing PASSED [100%]
+
+============================== 16 passed in 2.15s ==============================
+# exit code: 0
+# __pycache__ folders inside source_original/: 0
+# working copy: 38 added, 0 modified, 0 missing

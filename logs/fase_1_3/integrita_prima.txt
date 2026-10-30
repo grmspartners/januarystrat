@@ -1,0 +1,22 @@
+# Integrity tests BEFORE phase 1.3 (2026-10-30T20:59:55Z), HEAD bfb6a93
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0 -- /home/user/januarystrat/.venv/bin/python
+rootdir: /home/user/januarystrat
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 11 items
+
+tests/test_source_original_integrity.py::test_manifest_is_the_recorded_one PASSED [  9%]
+tests/test_source_original_integrity.py::test_no_original_file_modified PASSED [ 18%]
+tests/test_source_original_integrity.py::test_no_original_file_deleted PASSED [ 27%]
+tests/test_source_original_integrity.py::test_no_file_added PASSED       [ 36%]
+tests/test_source_original_integrity.py::test_tree_matches_baseline_commit PASSED [ 45%]
+tests/test_source_original_integrity.py::test_detector_passes_identical_tree PASSED [ 54%]
+tests/test_source_original_integrity.py::test_detector_flags_modification PASSED [ 63%]
+tests/test_source_original_integrity.py::test_detector_flags_deletion PASSED [ 72%]
+tests/test_source_original_integrity.py::test_detector_flags_additions_ignored_by_git PASSED [ 81%]
+tests/test_source_original_integrity.py::test_manifest_roundtrip_and_no_overwrite PASSED [ 90%]
+tests/test_source_original_integrity.py::test_cli_exit_codes PASSED      [100%]
+
+============================= 11 passed in 17.33s ==============================
+# exit code: 0

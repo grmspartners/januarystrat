@@ -1,0 +1,15 @@
+controllo,verificato,casi,nota
+top1_senza_stop = rendimento del 1o classificato,True,30,
+top1_con_stop = rendimento con stop del 1o classificato,True,30,
+top3 = media semplice dei tre rendimenti (nessun ribilanciamento),True,30,
+stop senza gap: esecuzione esattamente al 65% del prezzo d'ingresso rettificato,True,17,
+"stop con gap: esecuzione all'apertura, sotto il livello",True,5,
+liquidita' dopo lo stop a rendimento zero: il rendimento con stop non dipende dai prezzi successivi allo stop,True,22,"annual_study.stock_year(): ret_s = fill / entry - 1, nessun interesse; verificato anche nel codice"
+dividendi dopo lo stop esclusi (dividendi_T1_con_stop <= dividendi_T1),True,90,
+titoli_fermati_top3 = numero di stop nell'anno,True,30,
+"LEAPS 35/65 = 0,35 x opzione + 0,65 x azione",True,30,
+Lordo 1997-2025 'S&P 500 (indice Total Return)': valore finale = 100 x prodotto(1 + r) e CAGR = (VF/100)^(1/29) - 1,True,29,
+"Lordo 1997-2025 'Solo vincitore, senza stop': valore finale = 100 x prodotto(1 + r) e CAGR = (VF/100)^(1/29) - 1",True,29,
+"Lordo 1997-2025 'Solo vincitore, stop 35%': valore finale = 100 x prodotto(1 + r) e CAGR = (VF/100)^(1/29) - 1",True,29,
+"Lordo 1997-2025 'Prime tre, senza stop': valore finale = 100 x prodotto(1 + r) e CAGR = (VF/100)^(1/29) - 1",True,29,
+"Lordo 1997-2025 'Prime tre, stop 35%': valore finale = 100 x prodotto(1 + r) e CAGR = (VF/100)^(1/29) - 1",True,29,

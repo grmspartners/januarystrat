@@ -1,0 +1,8 @@
+[2026-10-30T21:03:16Z] source_original/ intact (before run)
+config.ROOT of the copy = /home/user/januarystrat/work/replica_originale
+copy of the original: 0 modified, 0 missing (25 files added by the pipeline)
+config.OUT of the copy = /home/user/januarystrat/work/replica_originale/out
+[2026-10-30T21:03:47Z] annual_study.py: exit 0 in 29s, 12 files written -> logs/fase_1_3/esecuzione_annual_study.txt
+[2026-10-30T21:03:49Z] report_annuale_tables.py: exit 0 in 2s, 1 files written -> logs/fase_1_3/esecuzione_report_annuale_tables.txt
+copy of the original: 0 modified, 0 missing (38 files added by the pipeline)
+[2026-10-30T21:03:52Z] source_original/ intact (after run)
