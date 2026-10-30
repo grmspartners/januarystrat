@@ -16,3 +16,13 @@ source_original/data/raw/jb_prices.parquet
 # Temporary files
 *.tmp
 *.log
+
+# Working copy of the original pipeline (work/replica_originale): rebuilt locally, never committed
+work/
+
+# Derived datasets: rebuilt from source_original, not committed
+data/processed/*
+!data/processed/.gitkeep
+
+# Test tooling
+.pytest_cache/
