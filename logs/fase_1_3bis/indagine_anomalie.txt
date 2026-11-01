@@ -1,0 +1,50 @@
+indagine_anomalie: code and data from work/replica_originale (original modules, unmodified)
+  hashes of 20 input files -> logs/fase_1_3bis/hash_file_utilizzati.txt
+
+[1] Adjusted prices rebuilt from the raw data vs the panel
+  rows of panel labels: 5807722; dropped outside the ^GSPC calendar: 15131 (14917 before 1988-01-04, 2 after the last day, 212 on exchange holidays); with a dividend: 147, of which inside the panel period: 0; duplicates dropped: 0
+  -> outputs/tables/f13b_trasformazioni_pipeline.csv (1 rows)
+  -> outputs/tables/f13b_giorni_segnalati.csv (357 rows)
+  flagged days: 357 on 156 series; by category {'frazionamento registrato': 356, 'dividendo anomalo (> 5% in un giorno)': 1}; by source {'jb:tiingo': 243, 'jb:wiki': 111, 'jb:yahoo': 3}; logged repairs: 30
+  -> outputs/tables/f13b_serie_segnalate.csv (156 rows)
+  series without a logged repair: 132; open/high/low/close identical: True; adj cells differing: 785845 of 805506; max relative difference 1.60e-14, max absolute 8.64e-12
+  -> outputs/tables/f13b_cambi_di_fonte.csv (90 rows)
+  days on which a series changes source: 90; max |gap| on those days 0.0472; max |adjusted return| 0.1609; days with |adjusted return| > 10%: 1
+  -> outputs/tables/f13b_riparazioni.csv (30 rows)
+  logged repairs reproduced by the rule: 30/30; estimated classes {'riparazione coerente con il frazionamento registrato': 11, 'riparazione che sostituisce un rendimento coerente con il frazionamento registrato': 9, 'non determinabile (nessuna lettura con movimento ordinario)': 6, 'variazione marginale (< 0,5 punti)': 4}
+  repairs inside the ranking year of a ranked S&P 500 member: 8; best position with the repair 17, with the vendor value 1; top-3 would change: 1
+    1997 USB-200102 (1997-01-16): position 43 with the repair (+66.4%), 1 with the vendor value (+399.2%); 3rd place +121.2%; class: riparazione coerente con il frazionamento registrato
+    2001 PBG-201002 (2001-12-04): position 80 with the repair (+19.2%), 6 with the vendor value (+138.4%); 3rd place +154.7%; class: riparazione coerente con il frazionamento registrato
+    1996 C-199811 (1996-11-25): position 17 with the repair (+56.6%), 14 with the vendor value (+67.1%); 3rd place +135.1%; class: riparazione che sostituisce un rendimento coerente con il frazionamento registrato
+    1999 USB-200102 (1999-04-16): position 260 with the repair (-29.7%), 23 with the vendor value (+111.0%); 3rd place +336.5%; class: riparazione coerente con il frazionamento registrato
+    2004 XTO-201006 (2004-03-17): position 125 with the repair (+25.0%), 27 with the vendor value (+56.3%); 3rd place +178.0%; class: riparazione coerente con il frazionamento registrato
+    2015 HBI (2015-03-04): position 162 with the repair (+9.3%), 110 with the vendor value (+16.8%); 3rd place +94.1%; class: riparazione coerente con il frazionamento registrato
+
+[2] Synthetic series (patches.py)
+  -> outputs/tables/f13b_serie_sintetiche_dettaglio.csv (9 rows)
+  -> outputs/tables/f13b_sintetiche_classifiche.csv (36 rows)
+  rank-year-end value / documented base: [1.0, 1.0001]; the 0.9999 line is active in 0/3 stopped series; price on the stop day vs level: [-0.0001, -0.0001, -0.0001]; would trigger without the 1.0001 factor (equality): [True, True, True]
+  member_from equal to the membership file: 8/9 (different: [['PATCH_DYN-2004', '2002-01-02', '2000-10-03']]); original ticker with prices: 0; ranking order unchanged without 1.0001: True; dividends: 0.0
+    PATCH_PCS-2000: top-3 position 2; margin over the next +1.53%, from the previous +513.53%; 4th place ORCL +289.8%
+    PATCH_NXTL-2000: top-3 position 3; margin over the next +12.00%, from the previous +1.53%; 4th place ORCL +289.8%
+    PATCH_RBK-2001: top-3 position 1; margin over the next +4.30%; 4th place EHC +203.5%
+    PATCH_DYN-2001: top-3 position 2; margin over the next +2.44%, from the previous +4.30%; 4th place EHC +203.5%
+    PATCH_PVN-2003: top-3 position 1; margin over the next +3.70%; 4th place HAL +47.1%
+    PATCH_AV-2004: top-3 position 1; margin over the next +44.28%; 4th place PMCS-201601 +261.5%
+    PATCH_DYN-2004: top-3 position 3; margin over the next +0.30%, from the previous +0.92%; 4th place PMCS-201601 +261.5%
+    PATCH_TXU-2005: top-3 position 3; margin over the next +40.66%, from the previous +8.40%; 4th place VLO +97.6%
+    PATCH_UST-2009: top-3 position 2; margin over the next +0.62%, from the previous +9.50%; 4th place AMGN +24.4%
+  -> outputs/tables/f13b_sintetiche_scenari_documentali.csv (5 rows)
+    scenario 'Dynegy 2000 = +361% (S&P DJI) invece di +220,2% (TSR del proxy)': winner -51.1% (no stop) / -31.9% (stop); top-3 +0.00% / +0.00% in 2001
+    scenario 'Reebok 2001 = -8.6% (estremo basso dell'intervallo da verificare)': winner -5.5% (no stop) / -5.5% (stop); top-3 -1.83% / -1.83% in 2001
+    scenario 'Reebok 2001 = -1.4% (estremo alto dell'intervallo da verificare)': winner +1.7% (no stop) / +1.7% (stop); top-3 +0.57% / +0.57% in 2001
+    scenario 'Reebok 2001 con stop toccato (apertura del 2-1-2001 >= 18,50 / 0,65 = 28,46)': winner +0.0% (no stop) / -31.9% (stop); top-3 +0.00% / -10.63% in 2001
+    scenario 'PMC-Sierra 3a nel 2003 al posto di Dynegy (margine 0,30% sul rendimento 2003)': winner +0.0% (no stop) / +0.0% (stop); top-3 -17.66% / -14.30% in 2004
+
+[3] The four positions with a different stop date in my first check
+  -> outputs/tables/f13b_quattro_posizioni.csv (4 rows)
+  -> outputs/tables/f13b_quattro_posizioni_giornaliero.csv (1010 rows)
+  1998 DELL-201310 (pos 1): entry 1998-01-02 raw 84.8100 adj 10.6013, level adj 6.8908; splits [1998-03-09 x2;1998-09-08 x2]; contested 1998-09-10: raw low 53.0000 vs raw level 55.1265, split factor 4 -> consistent low +284.6% vs level, adjusted low +284.6% vs adjusted level; year minimum +44.0% (1998-01-12); code exit 1998-12-31 ret +245.20%; corrected check exit 1998-12-31 ret +245.20%; first check (artefact) 1998-09-10 ret -35.29%
+  1999 DELL-201310 (pos 1): entry 1999-01-04 raw 74.8700 adj 37.4350, level adj 24.3328; splits [1999-03-08 x2]; contested 1999-03-08: raw low 43.0300 vs raw level 48.6655, split factor 2 -> consistent low +76.8% vs level, adjusted low +76.8% vs adjusted level; year minimum +28.9% (1999-06-02); code exit 1999-12-31 ret +36.24%; corrected check exit 1999-12-31 ret +36.24%; first check (artefact) 1999-03-08 ret -41.23%
+  1999 EMC-201609 (pos 3): entry 1999-01-04 raw 86.7500 adj 20.1447, level adj 13.0941; splits [1999-06-01 x2]; contested 1999-06-01: raw low 49.0000 vs raw level 56.3875, split factor 2 -> consistent low +73.8% vs level, adjusted low +73.8% vs adjusted level; year minimum +49.0% (1999-01-13); code exit 1999-12-31 ret +151.99%; corrected check exit 1999-12-31 ret +151.99%; first check (artefact) 1999-06-01 ret -41.28%
+  2012 CTRA (pos 1): entry 2012-01-03 raw 78.1100 adj 14.2039, level adj 9.2325; splits [2012-01-26 x2]; contested 2012-01-26: raw low 31.7600 vs raw level 50.7715, split factor 2 -> consistent low +25.1% vs level, adjusted low +25.1% vs adjusted level; year minimum +13.6% (2012-04-16); code exit 2012-12-31 ret +27.58%; corrected check exit 2012-12-31 ret +27.58%; first check (artefact) 2012-01-26 ret -57.30%

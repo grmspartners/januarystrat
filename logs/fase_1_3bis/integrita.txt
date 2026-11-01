@@ -1,0 +1,34 @@
+# Integrity and tests AT THE END of phase 1.3-BIS (2026-10-31T13:50:19Z), HEAD d40acfa + uncommitted phase 1.3-BIS files
+# start of phase (13:38:55Z): python3 -m research.integrity verify -> OK, 160 files; working copy 38 added, 0 modified, 0 missing
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0 -- /home/user/januarystrat/.venv/bin/python
+rootdir: /home/user/januarystrat
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 20 items
+
+tests/test_indagine_anomalie.py::test_repair_choice_reproduces_the_rule_on_pll_1991 PASSED [  5%]
+tests/test_indagine_anomalie.py::test_repair_choice_keeps_price_return_on_phantom_adjustment PASSED [ 10%]
+tests/test_indagine_anomalie.py::test_repair_class_cases PASSED          [ 15%]
+tests/test_indagine_anomalie.py::test_day_category PASSED                [ 20%]
+tests/test_source_original_integrity.py::test_manifest_is_the_recorded_one PASSED [ 25%]
+tests/test_source_original_integrity.py::test_no_original_file_modified PASSED [ 30%]
+tests/test_source_original_integrity.py::test_no_original_file_deleted PASSED [ 35%]
+tests/test_source_original_integrity.py::test_no_file_added PASSED       [ 40%]
+tests/test_source_original_integrity.py::test_tree_matches_baseline_commit PASSED [ 45%]
+tests/test_source_original_integrity.py::test_detector_passes_identical_tree PASSED [ 50%]
+tests/test_source_original_integrity.py::test_detector_flags_modification PASSED [ 55%]
+tests/test_source_original_integrity.py::test_detector_flags_deletion PASSED [ 60%]
+tests/test_source_original_integrity.py::test_detector_flags_additions_ignored_by_git PASSED [ 65%]
+tests/test_source_original_integrity.py::test_manifest_roundtrip_and_no_overwrite PASSED [ 70%]
+tests/test_source_original_integrity.py::test_cli_exit_codes PASSED      [ 75%]
+tests/test_strumenti_fase_1_3.py::test_classify_identical_text PASSED    [ 80%]
+tests/test_strumenti_fase_1_3.py::test_classify_numeric_noise_and_real_difference PASSED [ 85%]
+tests/test_strumenti_fase_1_3.py::test_classify_text_difference PASSED   [ 90%]
+tests/test_strumenti_fase_1_3.py::test_runner_refuses_scripts_not_authorised PASSED [ 95%]
+tests/test_strumenti_fase_1_3.py::test_module_constants_reads_without_executing PASSED [100%]
+
+============================== 20 passed in 1.58s ==============================
+# exit code: 0
+# __pycache__ folders inside source_original/: 0
+# working copy: 38 added, 0 modified, 0 missing

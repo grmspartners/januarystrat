@@ -1,0 +1,16 @@
+# Riproducibilita' degli output della Fase 1.3-BIS (revisione documentale, 31-10-2026)
+# Riesecuzione (stesso giorno, offline): HTTP(S)_PROXY=http://127.0.0.1:9 .venv/bin/python -c "import research.indagine_anomalie as m; m.TABLES=Path('<scratchpad>/riproduci_f13b/tables'); m.LOGS=Path('<scratchpad>/riproduci_f13b/logs'); m.main()"
+# Le scritture vanno solo nella scratchpad; il repository non viene toccato. Confronto byte per byte (cmp) con i file in stage:
+IDENTICO  outputs/tables/f13b_cambi_di_fonte.csv
+IDENTICO  outputs/tables/f13b_giorni_segnalati.csv
+IDENTICO  outputs/tables/f13b_quattro_posizioni.csv
+IDENTICO  outputs/tables/f13b_quattro_posizioni_giornaliero.csv
+IDENTICO  outputs/tables/f13b_riparazioni.csv
+IDENTICO  outputs/tables/f13b_serie_segnalate.csv
+IDENTICO  outputs/tables/f13b_serie_sintetiche_dettaglio.csv
+IDENTICO  outputs/tables/f13b_sintetiche_classifiche.csv
+IDENTICO  outputs/tables/f13b_sintetiche_scenari_documentali.csv
+IDENTICO  outputs/tables/f13b_trasformazioni_pipeline.csv
+IDENTICO  logs/fase_1_3bis/indagine_anomalie.txt
+IDENTICO  logs/fase_1_3bis/hash_file_utilizzati.txt (esclusa la prima riga, che contiene l'ora)
+# sha256 dello script rieseguito: 598946c826ca6b527f6f9d5e8868e9aa0dc52ebe2a9f3ea0cb375015963a3393 (= valore registrato in hash_file_utilizzati.txt)

@@ -38,3 +38,40 @@ Le evidenze sono in `outputs/tables/f13_*.csv` e in `logs/fase_1_3/controlli_f13
 | O-006 | Liquidità | Dopo uno stop la posizione resta in contanti a rendimento zero fino a fine anno, senza interessi e senza reinvestimento; i dividendi successivi allo stop sono esclusi. Verificato su tutti i 22 stop. | [VERIFICATO] `f13_identita.csv` |
 | O-007 | Versioni delle dipendenze | Con Python 3.13.17, numpy 2.5.4 e pandas 3.0.6 i 12 file riprodotti sono identici byte per byte agli originali. Il confronto con pandas 2.x previsto nel piano non serve per questi output e non è stato eseguito. | [VERIFICATO] |
 | O-008 | Fonti dei dati nelle posizioni | 63 posizioni su dati `jb:yahoo`, 13 `jb:tiingo`, 5 `jb:wiki`, 9 sintetiche; nessuna posizione cambia fonte durante la detenzione. | [VERIFICATO] `f13_posizioni_qualita_dati.csv` |
+
+---
+
+## Fase 1.3-BIS (31-10-2026) — nuove anomalie
+
+Indagine documentale: `reports/02_indagine_anomalie.md`; evidenze in `outputs/tables/f13b_*.csv` e `logs/fase_1_3bis/`.
+
+| ID | Fase | Oggetto | Quantificazione | Punto del codice | Origine | Impatto sui risultati riprodotti | Stato |
+|---|---|---|---|---|---|---|---|
+| A-010 | 1.3-BIS | La regola di riparazione sceglie il candidato più piccolo in valore assoluto tra 26 rapporti standard e ignora il rapporto di frazionamento registrato nei dati | 30 riparazioni [VERIFICATO]; secondo l'ipotesi di plausibilità (movimento ordinario sotto il 15%) [IPOTESI], 11 correggerebbero rettifiche del fornitore, **9 sostituirebbero un rendimento coerente con il frazionamento registrato** usando un rapporto mai registrato (es. PLL 30-12-1991: +7,78% → −4,19%), 4 sono marginali, 6 non determinabili [STIMA]. Ogni riparazione cambia il livello di tutta la storia precedente (PLL: +12,5%) [VERIFICATO]. | `panel._repair_adjustments()`: `best = min(cands, key=abs)` | metodologia | (1) **Baseline** [VERIFICATO]: le riparazioni fanno parte del codice originale; nessun titolo selezionato è toccato (delle 8 riparazioni in anni di classifica di titoli classificati, la migliore posizione è la 17ª). (2) **Controfattuale, non adottato** [VERIFICATO l'aritmetica]: con il valore del fornitore al posto della riparazione (un caso alla volta) la top-3 cambierebbe solo nella classifica 1997. US Bancorp passerebbe dal 43° posto (+66,4%) al 1° (+399,2%), davanti a Dell (+216,2%). Il controfattuale non prova né un errore né la correttezza della baseline. (3) **Ipotesi** [IPOTESI/STIMA]: secondo il criterio di plausibilità quella riparazione è corretta; le 9 riparazioni stimate sostitutive non cambierebbero nessuna top-3. Criterio non verificato su prezzi indipendenti. | [VERIFICATO] `f13b_riparazioni.csv`; non corretto |
+| A-011 | 1.3-BIS | Nelle serie sintetiche con stop la riga `a[sd] = base * lvl * 0.9999` è sovrascritta dalla riga successiva; lo stop scatta solo perché il fattore 1,0001 di A-001 alza il livello dello 0,01% | Prezzo del giorno di stop = base × 0,65 esatto; −1×10⁻⁴ rispetto al livello in 3 serie su 3. Senza 1,0001 lo stop scatterebbe per uguaglianza esatta in virgola mobile (vero oggi in 3 casi su 3). | `patches.apply()` | metodologia (codice non attivo, meccanismo implicito) | nullo oggi; fragile se il codice viene modificato | [VERIFICATO] `f13b_serie_sintetiche_dettaglio.csv`; non corretto |
+| A-012 | 1.3-BIS | Valori documentali delle serie sintetiche non verificabili nel progetto, con alternative documentate che spostano i risultati | Dynegy 2000: +220,2% (TSR) contro +361% (S&P DJI) decide il vincitore 2001 (Reebok o Dynegy: −51,1 punti senza stop, −31,9 con stop sul vincitore 2001). Reebok 2001: intervallo −8,6%…−1,4% (da −5,5 a +1,7 punti). Stop di Reebok "non toccato" con un margine del +3,9% [STIMA: minimo 18,50 contro un livello approssimato a ~17,8 nella docstring]: un'apertura ≥ 28,46 lo farebbe scattare (−31,9 punti sul vincitore con stop 2001). Rendimenti di prezzo per Reebok, Avaya e UST; arrotondamenti per TXU; dividendi zero in tutte le serie. | `patches.PATCHES` e docstring | dati (fonti documentali) | da misurare; scenari su singole posizioni in `f13b_sintetiche_scenari_documentali.csv` | [RIPORTATO] valori; [DA CONFERMARE] con i documenti SEC |
+| A-013 | 1.3-BIS | Margine dello 0,30% tra la serie sintetica di Dynegy 2003 (+262,6%, 3ª) e PMC-Sierra (+261,5%, 4ª): decide la composizione della top-3 del 2004 | [STIMA] con PMC-Sierra 3ª: −17,7 punti senza stop e −14,3 punti con stop sul rendimento delle prime tre nel 2004 (esito di PMC-Sierra con `annual_study.stock_year()`: −45,1%, stop il 29-4-2004) | `patches.PATCHES` (Dynegy 2003) | dati | da misurare | [VERIFICATO] margine; [DA CONFERMARE] il rendimento totale 2003 di Dynegy |
+| A-014 | 1.3-BIS | `member_from` di Dynegy 2004 (2-1-2002) diverso dal file di composizione (3-10-2000); le altre 8 serie coincidono | — | `patches.PATCHES` | documentazione | nullo (membro a fine 2003 in entrambi i casi) | [VERIFICATO]; non corretto |
+
+## Classificazione di tutte le anomalie (Fase 1.3-BIS)
+
+Classi: **VERIFICATA** (esiste, causa non del tutto identificata) · **SPIEGATA MA NON RISOLTA** (causa identificata, resta nel codice o nei dati originali, non corretti per mandato) · **RISOLTA** (causa identificata e nulla da correggere: artefatto del controllo o effetto numerico nullo) · **NON DETERMINABILE** (mancano dati o documenti).
+
+| ID | Classe | Motivo sintetico |
+|---|---|---|
+| A-001 | SPIEGATA MA NON RISOLTA | fattore 1,0001 che sovrascrive il valore di fine anno di classifica; effetto trascurabile |
+| A-002 | SPIEGATA MA NON RISOLTA | chiusura grezza nelle serie WIKI e Tiingo; il codice originale la gestisce |
+| A-003 | RISOLTA | ricostruzione aritmetica delle 156 serie segnalate (≤ 1,6×10⁻¹⁴): è l'anomalia 1 della Fase 1.3-BIS |
+| A-004 | SPIEGATA MA NON RISOLTA | definizione della copertura in `spariti.py` |
+| A-005 | SPIEGATA MA NON RISOLTA | finestre diverse di benchmark e strategia; effetto non misurato |
+| A-006 | SPIEGATA MA NON RISOLTA | `out/` non creata da `annual_study.py` |
+| A-007 | SPIEGATA MA NON RISOLTA | durata del 2026 fissata a 0,77 |
+| A-008 | NON DETERMINABILE | trattamento degli scorpori (BBWI, WDC, DXC) |
+| A-009 | NON DETERMINABILE | nessuna seconda fonte per i minimi dei 4 stop sul vincitore |
+| A-010 | SPIEGATA MA NON RISOLTA | regola di riparazione che ignora il rapporto registrato. Baseline: nessun titolo selezionato toccato. Controfattuale: top-3 cambiata solo per US Bancorp 1997, riparazione corretta secondo l'ipotesi di plausibilità (non verificata su prezzi indipendenti). 6 casi non determinabili |
+| A-011 | SPIEGATA MA NON RISOLTA | riga ×0,9999 non attiva; stop sintetico dipendente da 1,0001 o dall'uguaglianza esatta |
+| A-012 | NON DETERMINABILE | valori documentali senza documenti nel progetto |
+| A-013 | NON DETERMINABILE | margine dello 0,30% che dipende dal valore documentale di Dynegy 2003 |
+| A-014 | SPIEGATA MA NON RISOLTA | data di inizio della composizione diversa; nessun effetto |
+
+**Discrepanza dei quattro stop (Fase 1.3, nota P-006, punto 1): RISOLTA.** Era un artefatto del mio primo controllo, che confrontava prezzi grezzi prima e dopo un frazionamento. Con prezzi coerenti nessuno dei quattro stop scatta (Dell 1998 e 1999, EMC 1999, Coterra 2012), come nel codice originale. Ricostruzione completa in `reports/02_indagine_anomalie.md` §3 e in `f13b_quattro_posizioni*.csv`.

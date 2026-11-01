@@ -1,0 +1,113 @@
+# Fase 1.3-BIS — Revisione dei segnaposto (2026-10-31T23:57Z – 2026-11-01T00:01Z, UTC)
+# <scratchpad> = cartella temporanea della sessione, fuori dal repository; <repo> = radice del repository
+# Nessun commit o push; nessuna modifica a source_original/; nessun backtest, ottimizzazione, download o nuova analisi.
+
+## 1. Ricerca dei segnaposto
+Ambito: i 23 file in stage (codice, test, rapporto 02, registri, log, CSV) e i 3 script esplorativi non tracciati.
+Comandi: grep -n -E 'TODO|FIXME|XXX|TBD|TBC|HACK' (sensibile alle maiuscole);
+          grep -n -i -E 'TO.?VERIFY|placeholder|da verificare|da completare|da inserire|da definire|\?\?|<[a-z_]+>'.
+
+1a. TODO, FIXME, XXX, TBD, TBC, HACK: 0 occorrenze nei file in stage e negli script esplorativi.
+    Con la ricerca senza distinzione di maiuscole 'todo' compare solo dentro 'metodo', 'metodologia', 'metodologica' (13 falsi positivi).
+
+1b. 'TO VERIFY' e 'da verificare' (file di lavoro dopo la correzione; prima della correzione il rapporto 02 aveva 2 occorrenze alle righe 164 e 167):
+    logs/fase_1_3bis/indagine_anomalie.txt:39:    scenario 'Reebok 2001 = -8.6% (estremo basso dell'intervallo da verificare)': winner -5.5% (no stop) / -5.5% (stop); top-3 -1.83% / -1.83% in 2001
+    logs/fase_1_3bis/indagine_anomalie.txt:40:    scenario 'Reebok 2001 = -1.4% (estremo alto dell'intervallo da verificare)': winner +1.7% (no stop) / +1.7% (stop); top-3 +0.57% / +0.57% in 2001
+    outputs/tables/f13b_serie_sintetiche_dettaglio.csv:4:PATCH_RBK-2001,Reebok International,2000,"+234% (price, S&P DJI)",~-3% [TO VERIFY: -8.6%..-1.4%],not hit (low 18.50 vs ~17.8),S&P DJI list; Reebok …
+    outputs/tables/f13b_serie_sintetiche_dettaglio.csv:7:PATCH_AV-2004,Avaya,2003,+428% (price),~+33% [TO VERIFY],not hit (low 11.95 vs ~8.4),Forbes 5-Jan-2004 / S&P DJI; Avaya 10-K FY2004-05,4.28,0.33,,2…
+    outputs/tables/f13b_sintetiche_scenari_documentali.csv:3:alternativa documentata in patches.py,Reebok 2001 = -8.6% (estremo basso dell'intervallo da verificare),patches.py: [TO VERIFY: -8.6%..-1.4%],2…
+    outputs/tables/f13b_sintetiche_scenari_documentali.csv:4:alternativa documentata in patches.py,Reebok 2001 = -1.4% (estremo alto dell'intervallo da verificare),patches.py: [TO VERIFY: -8.6%..-1.4%],20…
+    reports/02_indagine_anomalie.md:173:- **[RIPORTATO]** Per Reebok 2001 e Avaya 2004 la docstring di `patches.py` (righe 27 e 30) contrassegna il rendimento di detenzione come ancora da verificare; per …
+    research/indagine_anomalie.py:410:        scen(f"Reebok 2001 = {v:+.1%} ({lab} dell'intervallo da verificare)", "patches.py: [TO VERIFY: -8.6%..-1.4%]",
+    logs/fase_1_3bis/revisione/verifica_tracciabilita.txt:138-139: etichette degli scenari Reebok troncate dallo script ('…intervallo da verifi'), stesso testo di f13b_sintetiche_scenari_documentali.csv
+
+1c. Classificazione
+  SEGNAPOSTO REDAZIONALI (corretti, P-011):
+    - reports/02_indagine_anomalie.md §2.1, riga 164, Reebok 2001: '~−3% **[TO VERIFY: −8,6%…−1,4%]** → −0,031'
+    - reports/02_indagine_anomalie.md §2.1, riga 167, Avaya 2004:  '~+33% **[TO VERIFY]** → 0,33'
+      Motivo: annotazione in inglese della docstring di patches.py riportata in una tabella italiana senza traduzione né attribuzione;
+      si leggeva come un segnaposto lasciato dalla redazione invece che come incertezza dichiarata dall'autore.
+  ANNOTAZIONI LEGITTIME (non modificate):
+    - outputs/tables/f13b_serie_sintetiche_dettaglio.csv righe 4 e 7, colonna doc_rend_detenzione: trascrizione letterale
+      della docstring di source_original/code/patches.py righe 27 e 30 (tutte le colonne doc_* sono in inglese come l'originale).
+      Modificarla altererebbe la trascrizione e un output riprodotto.
+    - outputs/tables/f13b_sintetiche_scenari_documentali.csv righe 3-4, colonna fonte, e research/indagine_anomalie.py riga 410 che la genera:
+      citazione della fonte dei due scenari. Modificarla cambierebbe il CSV.
+    - 'intervallo da verificare' (script riga 410, colonna scenario del CSV, indagine_anomalie.txt righe 39-40, verifica_tracciabilita.txt
+      righe 138-139) e 'ancora da verificare' (rapporto 02, nuova nota del §2.1): descrizione in italiano dell'incertezza dichiarata dall'autore.
+    - <scratchpad>, <repo>, <fase>, <pkg>, <ver> in comandi.md, revisione_finale.txt, riproducibilita.txt, registro_verifiche.md:
+      segnaposto di percorso intenzionali e spiegati nei file stessi.
+    - [DA CONFERMARE], [STIMA], [IPOTESI]: etichette di incertezza del protocollo del progetto.
+    - source_original/code/patches.py righe 27 e 30: annotazione originale dell'autore, fuori dall'ambito delle modifiche (immutabile).
+
+## 2. Test e integrità (dopo la correzione del rapporto)
+## pytest
+testpaths: tests
+collecting ... collected 20 items
+
+tests/test_indagine_anomalie.py::test_repair_choice_reproduces_the_rule_on_pll_1991 PASSED [  5%]
+tests/test_indagine_anomalie.py::test_repair_choice_keeps_price_return_on_phantom_adjustment PASSED [ 10%]
+tests/test_indagine_anomalie.py::test_repair_class_cases PASSED          [ 15%]
+tests/test_indagine_anomalie.py::test_day_category PASSED                [ 20%]
+tests/test_source_original_integrity.py::test_manifest_is_the_recorded_one PASSED [ 25%]
+tests/test_source_original_integrity.py::test_no_original_file_modified PASSED [ 30%]
+tests/test_source_original_integrity.py::test_no_original_file_deleted PASSED [ 35%]
+tests/test_source_original_integrity.py::test_no_file_added PASSED       [ 40%]
+tests/test_source_original_integrity.py::test_tree_matches_baseline_commit PASSED [ 45%]
+tests/test_source_original_integrity.py::test_detector_passes_identical_tree PASSED [ 50%]
+tests/test_source_original_integrity.py::test_detector_flags_modification PASSED [ 55%]
+tests/test_source_original_integrity.py::test_detector_flags_deletion PASSED [ 60%]
+tests/test_source_original_integrity.py::test_detector_flags_additions_ignored_by_git PASSED [ 65%]
+tests/test_source_original_integrity.py::test_manifest_roundtrip_and_no_overwrite PASSED [ 70%]
+tests/test_source_original_integrity.py::test_cli_exit_codes PASSED      [ 75%]
+tests/test_strumenti_fase_1_3.py::test_classify_identical_text PASSED    [ 80%]
+tests/test_strumenti_fase_1_3.py::test_classify_numeric_noise_and_real_difference PASSED [ 85%]
+tests/test_strumenti_fase_1_3.py::test_classify_text_difference PASSED   [ 90%]
+tests/test_strumenti_fase_1_3.py::test_runner_refuses_scripts_not_authorised PASSED [ 95%]
+tests/test_strumenti_fase_1_3.py::test_module_constants_reads_without_executing PASSED [100%]
+
+============================= 20 passed in 21.64s ==============================
+## integrity source_original
+OK: <repo>/source_original is identical to <repo>/tests/fixtures/source_original.sha256 (160 files)
+## staged changes under source_original (0 = none)
+exit=0
+## unstaged changes under source_original (0 = none)
+exit=0
+
+## 3. Riproducibilità
+Comando: HTTP_PROXY=http://127.0.0.1:9 HTTPS_PROXY=http://127.0.0.1:9 .venv/bin/python -c "import research.indagine_anomalie as m; m.TABLES=Path('<scratchpad>/rev_segnaposto/riproduci/tables'); m.LOGS=Path('<scratchpad>/rev_segnaposto/riproduci/logs'); m.main()"
+## riesecuzione di research.indagine_anomalie (scritture nella scratchpad), confronto byte per byte con i file in stage
+sha256 research/indagine_anomalie.py: 598946c826ca6b527f6f9d5e8868e9aa0dc52ebe2a9f3ea0cb375015963a3393
+IDENTICO  outputs/tables/f13b_cambi_di_fonte.csv
+IDENTICO  outputs/tables/f13b_giorni_segnalati.csv
+IDENTICO  outputs/tables/f13b_quattro_posizioni.csv
+IDENTICO  outputs/tables/f13b_quattro_posizioni_giornaliero.csv
+IDENTICO  outputs/tables/f13b_riparazioni.csv
+IDENTICO  outputs/tables/f13b_serie_segnalate.csv
+IDENTICO  outputs/tables/f13b_serie_sintetiche_dettaglio.csv
+IDENTICO  outputs/tables/f13b_sintetiche_classifiche.csv
+IDENTICO  outputs/tables/f13b_sintetiche_scenari_documentali.csv
+IDENTICO  outputs/tables/f13b_trasformazioni_pipeline.csv
+IDENTICO  logs/fase_1_3bis/indagine_anomalie.txt
+IDENTICO  logs/fase_1_3bis/hash_file_utilizzati.txt (esclusa la riga con l'ora)
+file prodotti: 10 CSV, hash_file_utilizzati.txt indagine_anomalie.txt 
+
+## verifica_tracciabilita.py (non modificato; output nella scratchpad), confronto con l'evidenza in stage escluse la riga d'intestazione con l'ora e la riga finale '# exit code: 0' aggiunte al salvataggio
+sha256 logs/fase_1_3bis/revisione/verifica_tracciabilita.py: bf7bde40525ce2830b0b4b88e2f7f85e03c0bc8296a5bab79b7df5d8fc290ab3
+exit=0
+statements checked: 232; mismatches: 0
+IDENTICO  verifica_tracciabilita.txt (righe 2-236 contro output completo)
+
+## 4. Coerenza tra docstring originale, CSV, rapporto e registro delle anomalie
+## coerenza §2.1 (Reebok 2001, Avaya 2004): docstring di patches.py, CSV, rapporto
+colonne CSV usate: ['doc_rend_classifica', 'doc_rend_detenzione', 'doc_stop', 'doc_fonti', 'codice_rank_tr', 'codice_hold_tr']
+PATCH_RBK-2001: patches.py riga 27 contiene '~-3% [TO VERIFY: -8.6%..-1.4%]': True; CSV ['doc_rend_detenzione'] = docstring: True; CSV ['codice_hold_tr'] = -0.031: True
+  rapporto: valore del codice −0,031 presente: True; 'non verificato in modo indipendente': True; segnaposto assente: True
+PATCH_AV-2004: patches.py riga 30 contiene '~+33% [TO VERIFY]': True; CSV ['doc_rend_detenzione'] = docstring: True; CSV ['codice_hold_tr'] = 0.33: True
+  rapporto: valore del codice 0,33 presente: True; 'non verificato in modo indipendente': True; segnaposto assente: True
+scenario CSV: Reebok 2001 = -8.6% (estremo basso dell'intervallo da verificare)
+scenario CSV: Reebok 2001 = -1.4% (estremo alto dell'intervallo da verificare)
+rapporto §2.6 cita gli estremi −8,6% e −1,4%: True
+registro anomalie A-012 cita l'intervallo −8,6%…−1,4%: True
+occorrenze di 'TO VERIFY' nel rapporto 02: 0
+Nota: il controllo sugli estremi del §2.6 cerca 'Reebok 2001 = −8,6%' e 'Reebok 2001 = −1,4%' nelle righe della tabella degli scenari.

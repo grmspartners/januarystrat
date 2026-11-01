@@ -115,3 +115,83 @@ Condizioni: solo nella copia `work/replica_originale/`; nessuno script con outpu
 - **[DA CONFERMARE]** Trattamento degli scorpori BBWI 2021 e WDC 2025 (A-008).
 - Effetto sui risultati del diverso punto di partenza di benchmark e strategia (A-005): da misurare solo in una fase autorizzata a nuovi calcoli.
 - Restano aperti i punti precedenti: documenti SEC delle serie sintetiche, SNDK "when-issued", licenze, calendario NYSE 2027.
+
+---
+
+## Fase 1.3-BIS — Indagine sulle anomalie (31-10-2026), autorizzata dal committente
+
+Condizioni: solo nella copia di lavoro; nessuna modifica a `source_original/`; nessun download; nessun backtest, ottimizzazione o seconda implementazione; nessuna correzione del codice originale; registrare comandi, evidenze e hash; nessun commit o push senza aver mostrato il diff e ricevuto una nuova autorizzazione. Rapporto: `reports/02_indagine_anomalie.md`. Comandi: `logs/fase_1_3bis/comandi.md`.
+
+| ID | Ora | Oggetto | Procedura | Risultato | Evidenza | Stato |
+|---|---|---|---|---|---|---|
+| V-301 | 13:38 | Stato iniziale | `git status`; `research.integrity verify` su `source_original/` e sulla copia | Branch pulito su `d40acfa`; `source_original/` identico al manifesto; copia: 38 file aggiunti, 0 modificati, 0 mancanti | `fase_1_3bis/integrita.txt` | VERIFICATO |
+| V-302 | 13:48 | Hash dei file letti | `research.indagine_anomalie` | 20 file; i moduli della copia hanno lo stesso hash di `source_original/` | `fase_1_3bis/hash_file_utilizzati.txt` | VERIFICATO |
+| V-303 | 13:48 | Trasformazioni della pipeline | Ricostruzione di `build_panel()` con i conteggi | 15.131 righe fuori calendario (14.917 prima del 1988, 2 dopo l'ultimo giorno, 212 in giorni di borsa chiusa); 147 dividendi scartati, tutti prima del 1988; 0 duplicati | `f13b_trasformazioni_pipeline.csv` | VERIFICATO |
+| V-304 | 13:48 | Prezzi rettificati ricostruiti contro pannello | Confronto serie per serie e giorno per giorno | 357 giorni segnalati su 156 serie (356 frazionamenti registrati, 1 dividendo anomalo ACAS); 132 serie senza riparazioni: OHLC identici, prezzo rettificato diverso al massimo di 1,6e-14 per la ricostruzione con prodotto cumulato | `f13b_giorni_segnalati.csv`, `f13b_serie_segnalate.csv` | VERIFICATO → anomalia 1 RISOLTA |
+| V-305 | 13:48 | Cambi di fonte | Giorni in cui una serie cambia fonte | 90 giorni; scarto della regola al massimo 4,72%; 1 movimento superiore al 10% (Vontier 9-10-2020, −16,1%) | `f13b_cambi_di_fonte.csv` | VERIFICATO |
+| V-306 | 13:48 | Le 30 riparazioni | Ricalcolo della regola; classificazione per plausibilità; effetto sulle classifiche | 30/30 riprodotte; 11 coerenti, 9 sostitutive, 4 marginali, 6 non determinabili [STIMA]. Baseline: nessun titolo selezionato toccato (migliore 17°). Controfattuale (valore del fornitore, un caso alla volta): top-3 cambiata solo per US Bancorp 1997 (43° → 1°); secondo l'ipotesi di plausibilità la riparazione è corretta [IPOTESI] | `f13b_riparazioni.csv` | VERIFICATO (A-010; classi e lettura STIMA) |
+| V-307 | 13:48 | Serie sintetiche: origine e costruzione | Docstring contro codice; valori nel pannello; file di composizione | Valori = tabella documentale (salvo arrotondamenti dichiarati); fattore 1,0001 sul prezzo d'ingresso di 3 serie; riga ×0,9999 non attiva in 3 serie su 3; `member_from` uguale al file in 8 casi su 9 | `f13b_serie_sintetiche_dettaglio.csv` | VERIFICATO (A-001, A-011, A-014) |
+| V-308 | 13:48 | Serie sintetiche: classifiche | Classifica originale (`signals.ranking`, filtro di `annual_study`) degli anni con serie sintetiche | Ordine invariato senza 1,0001; margini decisivi: Reebok/Dynegy 2000 +4,30%, Providian/Boston Scientific 2002 +3,70%, Dynegy/PMC-Sierra 2003 +0,30% | `f13b_sintetiche_classifiche.csv` | VERIFICATO (A-013) |
+| V-309 | 13:48 | Serie sintetiche: rendimenti e stop | Scenari su singole posizioni (alternative documentate; una stima di sensibilità) | Dynegy +361%: vincitore 2001 −51,1 / −31,9 punti; intervallo Reebok −5,5…+1,7 punti; stop Reebok −31,9 punti (vincitore con stop 2001); PMC-Sierra al 3° posto 2003: prime tre 2004 −17,7 / −14,3 punti [STIMA] | `f13b_sintetiche_scenari_documentali.csv` | VERIFICATO (aritmetica); valori DA CONFERMARE |
+| V-310 | 13:48 | Le quattro posizioni con date di stop diverse | Ricostruzione giornaliera: prezzi grezzi e rettificati, frazionamenti, dividendi, livelli; uscita secondo il codice, il controllo corretto e il primo controllo | Tutte e quattro: discrepanza dovuta a frazionamenti (chiusura grezza WIKI/Tiingo); con prezzi coerenti nessuno stop (distanza minima dal livello tra 13,6% e 49,0%); differenza codice-controllo corretto = 0 | `f13b_quattro_posizioni.csv`, `f13b_quattro_posizioni_giornaliero.csv` | VERIFICATO → RISOLTA |
+| V-311 | 13:49 | Test delle funzioni di classificazione | `pytest tests/test_indagine_anomalie.py` | 4 test superati (casi reali PLL, US Bancorp, Joy Global, Total System Services) | `fase_1_3bis/integrita.txt` | VERIFICATO |
+| V-312 | fine fase | Integrità finale | `pytest -v`; controlli di `source_original/` e della copia | 20 test superati; nessun `__pycache__` in `source_original/`; copia con 0 file originali modificati | `fase_1_3bis/integrita.txt` | VERIFICATO |
+
+### Correzioni durante la fase
+
+- **P-008** (V-304). Nella prima stesura del rapporto 02 la ripartizione per fonte dei 356 giorni di frazionamento era sbagliata (Tiingo 243, WIKI 110). Avevo usato i totali per fonte, che includono il giorno ACAS (Tiingo). Corretta prima del salvataggio: Tiingo 242, WIKI 111, Yahoo 3.
+
+### Punti aperti dopo la Fase 1.3-BIS
+
+- **[DA CONFERMARE]** Documenti SEC delle serie sintetiche, in particolare Reebok 2000-2001 (rendimento, apertura del 2-1-2001, minimo), Dynegy 2000 e 2003, Providian 2002 (A-012, A-013).
+- **[DA CONFERMARE]** Seconda fonte di prezzi per i 4 stop sul vincitore (A-009) e per i 6 casi di riparazione non determinabili (A-010).
+- Effetto complessivo di A-005, A-010, A-012 e A-013: da misurare solo in una fase autorizzata a nuovi calcoli.
+
+### Revisione documentale della Fase 1.3-BIS (31-10-2026)
+
+Richiesta dal committente dopo la lettura del rapporto 02: nessun commit o push, nessuna modifica a `source_original/`, nessun backtest, nessuna ottimizzazione, nessun download.
+
+| ID | Oggetto | Procedura | Risultato | Evidenza | Stato |
+|---|---|---|---|---|---|
+| V-313 | Riproducibilità degli output in stage | Riesecuzione di `research.indagine_anomalie` con le scritture reindirizzate nella scratchpad; confronto byte per byte | 10 CSV, `indagine_anomalie.txt` e `hash_file_utilizzati.txt` (esclusa la riga con l'ora) identici; script con l'hash registrato; repository non toccato | `fase_1_3bis/revisione/riproducibilita.txt` | VERIFICATO |
+| V-314 | Tracciabilità delle conclusioni del rapporto 02 | `logs/fase_1_3bis/revisione/verifica_tracciabilita.py`: ricalcola ogni valore citato dalle evidenze | Prima esecuzione: 219 affermazioni, 2 discordanze (formattazione dello script per UST; margine di Avaya scritto "+42%"). Dopo le correzioni e il controfattuale di A-010: 232 affermazioni, 1 discordanza (Time Warner +59,6% invece di +59,5%), corretta. Finale: 232 affermazioni, 0 discordanze | `fase_1_3bis/revisione/verifica_tracciabilita.txt` | VERIFICATO |
+| V-315 | Stato finale dello stage e di `source_original/` | `git diff --cached --name-status`; `research.integrity verify`; `pytest` | `source_original/` identico al manifesto; nessuna modifica staged sotto `source_original/`; i due registri esistenti ricevono solo righe in coda; `pytest`: 20 superati | risposta al committente (l'esito di `pytest` di questa revisione non è stato salvato in un file; vedi V-319) | VERIFICATO |
+
+**P-009 — Correzioni documentali della revisione.** Nessun risultato numerico e nessun output della baseline è cambiato.
+- **A-010.** Separate la baseline (nessun titolo selezionato toccato dalle riparazioni) dal controfattuale non adottato (top-3 cambiata solo per US Bancorp 1997, riparazione stimata corretta), nel rapporto, nel registro delle anomalie e in V-306.
+- **Etichette.** Aggiunte dove mancavano: il margine di Reebok e i margini minimo/livello sono [STIMA]; lo stesso arrotondamento nell'esecuzione originale è un'[IPOTESI]; "UST resterebbe 2ª" è un'[IPOTESI].
+- **Precisazioni.** Uso del campo dividendi per ACAS; prezzi rettificati di Dell 1999, limitati all'evidenza del CSV giornaliero; margini a un decimale (Providian +25,0%, Avaya +42,3%); Time Warner +59,5%.
+- **Aggiunte al rapporto.** §5 "Conclusioni per ambito" (riproducibilità, integrità dei dati, correttezza metodologica, impatto sulle classifiche, impatto sul CAGR non misurato) e Appendice A "Tracciabilità".
+
+### Revisione finale pre-commit della Fase 1.3-BIS (31-10-2026)
+
+Richiesta dal committente: nessun commit o push; nessun backtest, ottimizzazione, download o nuova analisi quantitativa; nessuna modifica al codice originale o agli output della baseline. Evidenza: `logs/fase_1_3bis/revisione/revisione_finale.txt`.
+
+| ID | Oggetto | Procedura | Risultato | Evidenza | Stato |
+|---|---|---|---|---|---|
+| V-316 | Script esplorativi | `git restore --staged logs/fase_1_3bis/esplorativi/explore1.py explore2.py explore3.py` | Tolti dallo stage, non cancellati dal disco; non erano mai stati committati (0 file `esplorativi` in `HEAD`); ora non tracciati | `revisione_finale.txt` (§4) | VERIFICATO |
+| V-317 | Collocazione dello script di tracciabilità | Ricerca di percorsi assoluti; esecuzione da una checkout pulita del contenuto in stage (`git checkout-index -a`); due esecuzioni confrontate tra loro e con l'evidenza salvata; controllo del codice di uscita | Nessun percorso assoluto; deterministico (esecuzioni identiche e uguali all'evidenza: 232 affermazioni, 0 discordanze); **non eseguibile da una checkout pulita** (legge `work/replica_originale/out/AN_top3_anno.csv`, escluso da Git: `FileNotFoundError`, exit 1); codice di uscita sempre 0. Condizioni non tutte soddisfatte: **lo script resta in `logs/fase_1_3bis/revisione/`** | `revisione_finale.txt` (§3) | VERIFICATO |
+| V-318 | Rilettura integrale e correzioni documentali | Lettura completa del rapporto 02, dei due registri e delle evidenze di tracciabilità | Correzioni minime, nessun numero cambiato (P-010) | rapporto 02, registri | VERIFICATO |
+| V-319 | Test e integrità finali | `pytest -v`; `research.integrity verify`; `git diff --cached --quiet -- source_original`; ricerca di file temporanei, cache e duplicati nello stage | 20 test superati; `source_original/` identico al manifesto (160 file); nessuna modifica staged sotto `source_original/`; nessun file temporaneo o di cache nello stage; nessun contenuto duplicato | `revisione_finale.txt` (§1, §2, §4) | VERIFICATO |
+
+**P-010 — Correzioni documentali della revisione finale.** Nessun numero dell'analisi è cambiato.
+- **A-010 in tre parti distinte**, nel rapporto (sintesi, §1.4, §4, §5.4, Appendice A) e nel registro delle anomalie: (1) classifica della baseline originale; (2) controfattuale con il valore del fornitore, che non prova né un errore né la correttezza della baseline; (3) ipotesi di plausibilità, che produce le classi stimate e non è verificata su prezzi indipendenti. Rese condizionali due frasi che presentavano l'ipotesi come fatto.
+- **Etichette separate** in §2.4 del rapporto: dividendi zero [VERIFICATO] e TSR che include i dividendi [RIPORTATO]; assenza di oscillazioni [VERIFICATO] e data dello stop scelta nel trimestre [RIPORTATO]. Margine di Reebok in A-012 etichettato [STIMA].
+- **Appendice A.** Indicato il percorso di `AN_top3_anno.csv` nel repository (`source_original/results/`, identico alla copia riprodotta); documentati i limiti dello script di tracciabilità e la stampa `0.0` dei valori sotto 10⁻⁶ nell'evidenza.
+- **V-315.** Precisato che l'esito di `pytest` di quella revisione non era stato salvato in un file.
+- **Script esplorativi.** Documentata l'esclusione dal commit in `comandi.md` e nel §6 del rapporto.
+
+### Revisione dei segnaposto della Fase 1.3-BIS (01-11-2026)
+
+Richiesta dal committente dopo la revisione indipendente del patch: sostituire i segnaposto del §2.1 del rapporto 02 e cercarne altri nei file in stage. Nessun commit o push; nessuna modifica a `source_original/`; nessun backtest, ottimizzazione, download o nuova analisi. Evidenza: `logs/fase_1_3bis/revisione/segnaposto.txt`.
+
+| ID | Oggetto | Procedura | Risultato | Evidenza | Stato |
+|---|---|---|---|---|---|
+| V-320 | Segnaposto nei file in stage | Ricerca di `TO VERIFY`, `TODO`, `FIXME`, `XXX`, `TBD`, `TBC`, `HACK` e di altre forme ("da verificare", "da completare", `??`, `<…>`) nei 23 file in stage e nei 3 script esplorativi; classificazione di ogni occorrenza | 2 segnaposto redazionali nel rapporto 02, §2.1 (Reebok 2001 e Avaya 2004): annotazione della docstring di `patches.py` riportata in inglese senza traduzione né attribuzione; corretti (P-011). Legittime e non modificate: trascrizione letterale della docstring nelle colonne `doc_*` di `f13b_serie_sintetiche_dettaglio.csv`; citazione della fonte nella colonna `fonte` di `f13b_sintetiche_scenari_documentali.csv` e nella riga 410 di `research/indagine_anomalie.py`, che la genera; "intervallo da verificare" come descrizione dell'incertezza dichiarata dall'autore; segnaposto di percorso spiegati nei file (`<scratchpad>`, `<repo>`). `TODO`, `FIXME`, `XXX`, `TBD`, `TBC`, `HACK`: 0 occorrenze | `revisione/segnaposto.txt` §1 | VERIFICATO |
+| V-321 | Test, integrità e coerenza dopo la correzione | `pytest -v`; `research.integrity verify`; `git diff --quiet` e `git diff --cached --quiet` su `source_original`; riesecuzione di `research.indagine_anomalie` e di `verifica_tracciabilita.py` con le scritture nella scratchpad e confronto con i file in stage; confronto di Reebok 2001 e Avaya 2004 tra docstring di `patches.py`, CSV, rapporto e registro delle anomalie | 20 test superati; `source_original/` identico al manifesto (160 file); nessuna modifica sotto `source_original/`; 10 CSV e 2 log identici (per `hash_file_utilizzati.txt` esclusa la riga con l'ora); tracciabilità: 232 affermazioni, 0 discordanze, output identico all'evidenza salvata; valori del codice (−0,031; 0,33) e intervallo di Reebok (−8,6%…−1,4%) coerenti in tutte le fonti | `revisione/segnaposto.txt` §2-4 | VERIFICATO |
+
+**P-011 — Sostituzione dei segnaposto del §2.1 del rapporto 02.** Nessun valore numerico e nessuna conclusione sono cambiati.
+- Reebok 2001: `~−3% **[TO VERIFY: −8,6%…−1,4%]**` → `~−3% (in attesa di verifica secondo l'autore, intervallo −8,6%…−1,4%; **non verificato in modo indipendente**)`.
+- Avaya 2004: `~+33% **[TO VERIFY]**` → `~+33% (in attesa di verifica secondo l'autore; **non verificato in modo indipendente**)`.
+- Aggiunta sotto la tabella una nota [RIPORTATO]/[DA CONFERMARE] che collega le due celle all'annotazione originale (`patches.py`, righe 27 e 30) e agli scenari del §2.6: dopo la traduzione resta il rimando al codice originale.
+- Non modificati i CSV, lo script e i log che riportano l'annotazione originale (V-320): sono trascrizioni o citazioni della fonte, e cambiarli altererebbe output riprodotti.
